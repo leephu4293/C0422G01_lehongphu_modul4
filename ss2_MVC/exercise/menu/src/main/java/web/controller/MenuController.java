@@ -25,7 +25,7 @@ public class MenuController {
     @GetMapping("/menu")
     public String checkMenu(@RequestParam(required = false) List<String> pick, Model model) {
         if (pick == null) {
-            model.addAttribute("mess", "khong co mon chon");
+            model.addAttribute("mess", "Your taste is unique :D ");
         } else {
             model.addAttribute("list", pick);
         }

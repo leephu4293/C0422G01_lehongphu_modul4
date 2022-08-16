@@ -9,7 +9,6 @@
       <change beforePath="$PROJECT_DIR$/../../../ss1_MVC/exercise/Currnecy/src/main/java/web/controller/CurrencyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_MVC/exercise/Currnecy/src/main/java/web/controller/CurrencyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/controller/DictionnaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/controller/DictionnaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/service/DictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/service/DictionaryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/web/controller/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/controller/CalculatorController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../menu" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -155,7 +154,7 @@
       <updated>1660633852214</updated>
       <workItem from="1660633853356" duration="7840000" />
       <workItem from="1660642368379" duration="669000" />
-      <workItem from="1660643483296" duration="365000" />
+      <workItem from="1660643483296" duration="423000" />
     </task>
     <servers />
   </component>

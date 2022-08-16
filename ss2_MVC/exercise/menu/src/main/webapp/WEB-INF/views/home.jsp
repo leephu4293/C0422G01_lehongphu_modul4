@@ -22,7 +22,7 @@
             </form>
                 <c:if test="${list!=null}">
                 <c:forEach var="list" items="${list}">
-                   <p>Ban da chon: ${list}</p>
+                   <p>Your Choice: ${list}</p>
                 </c:forEach>
                 </c:if>
                 <c:if test="${list==null}">
