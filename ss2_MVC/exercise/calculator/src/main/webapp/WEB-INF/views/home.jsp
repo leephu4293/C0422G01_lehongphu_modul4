@@ -26,7 +26,7 @@
               </select>
               <button type="submit"> submit </button>
           </form>
-             <p>ket qua la : ${result}</p>
+             <p>Result : ${result}</p>
       </div>
 </body>
 </html>

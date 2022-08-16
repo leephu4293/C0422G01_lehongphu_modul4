@@ -20,7 +20,7 @@ public class CalculatorService implements ICalculatorService {
                 break;
             case "Division":
                 if (number2 == 0 ){
-                    result="mau phai khac 0";
+                    result="denominator other than 0";
                 }else {
                     result = String.valueOf(number1/number2);
                 }
