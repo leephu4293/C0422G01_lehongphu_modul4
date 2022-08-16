@@ -20,7 +20,7 @@ public class CalculatorController {
     }
 
     @GetMapping("/calculator")
-    public String home(@RequestParam double number1, @RequestParam double number2,
+    public String result(@RequestParam double number1, @RequestParam double number2,
                        @RequestParam String select, Model model){
        String result = this.iCalculatorService.calculator(number1,number2,select);
        model.addAttribute("result",result);
