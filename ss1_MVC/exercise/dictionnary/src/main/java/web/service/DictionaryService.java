@@ -7,7 +7,7 @@ import web.repository.IDictionaryRepository;
 public class DictionaryService implements IDictonaryService{
 
      @Autowired
-     IDictionaryRepository iDictionaryRepository;
+     private  IDictionaryRepository iDictionaryRepository;
      public String findWord(String word) {
         return this.iDictionaryRepository.findWord(word);
     }

@@ -9,6 +9,10 @@
       <change beforePath="$PROJECT_DIR$/../../../ss1_MVC/exercise/Currnecy/src/main/java/web/controller/CurrencyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_MVC/exercise/Currnecy/src/main/java/web/controller/CurrencyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/controller/DictionnaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/controller/DictionnaryController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/service/DictionaryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../ss1_MVC/exercise/dictionnary/src/main/java/web/service/DictionaryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/web/service/CalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/web/service/impl/CalculatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menu/src/main/java/web/repository/MenuRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../menu/src/main/java/web/repository/impl/MenuRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../menu/src/main/java/web/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../menu/src/main/java/web/service/impl/MenuService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +52,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../menu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -155,10 +159,24 @@
       <workItem from="1660633853356" duration="7840000" />
       <workItem from="1660642368379" duration="669000" />
       <workItem from="1660643483296" duration="423000" />
+      <workItem from="1660699891304" duration="16000" />
+      <workItem from="1660704824397" duration="30000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

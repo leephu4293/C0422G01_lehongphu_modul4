@@ -10,21 +10,21 @@ import web.service.IDictonaryService;
 import java.util.Locale;
 
 @Controller
-public class Dictionnary {
+public class DictionnaryController {
     @Autowired
-    IDictonaryService iDictonaryService;
+    private IDictonaryService iDictonaryService;
     @GetMapping("/")
-    public String home (){
+    public String home() {
         return "home";
     }
     @GetMapping("/home")
-    public String showResult (@RequestParam String word , Model model){
+    public String showResult(@RequestParam String word, Model model) {
 
-        String  result = this.iDictonaryService.findWord(word.toLowerCase(Locale.ROOT));
-        if (result == null){
-            model.addAttribute("result","khong co tu muon dich");
-        }else {
-            model.addAttribute("result",result);
+        String result = this.iDictonaryService.findWord(word.toLowerCase(Locale.ROOT));
+        if (result == null) {
+            model.addAttribute("result", "khong co tu muon dich");
+        } else {
+            model.addAttribute("result", result);
         }
         return "home";
     }

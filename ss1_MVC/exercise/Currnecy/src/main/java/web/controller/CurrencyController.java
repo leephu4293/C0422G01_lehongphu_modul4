@@ -11,7 +11,7 @@ import web.service.ICurrencyService;
 @Controller
 public class CurrencyController {
     @Autowired
-    ICurrencyService iCurrencyService;
+     private ICurrencyService iCurrencyService;
 
     @GetMapping("/")
     public String home (){
