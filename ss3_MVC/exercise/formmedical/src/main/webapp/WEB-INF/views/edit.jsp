@@ -18,8 +18,7 @@
     <div class="col-lg-8">
         <div class="row">
             <div class="col-lg-12">
-                <h1>KHAI BAO Y TE </h1>
-                <form:form action="/create" modelAttribute="medical" method="get">
+                <form:form action="/edit" modelAttribute="medical" method="post">
                     <div class="mb-3 row">
                         <label for="exampleInputEmail" class="form-label">HO VA TEN </label>
                         <form:input path="name" type="text" class="form-control" id="exampleInputEmail"
@@ -52,9 +51,9 @@
                         <div class="col-lg-12">
                             <h5>Thong tin di chuyen</h5>
                             <p><form:radiobutton cssClass="ms-4" path="travel" value="May bay"/> May bay </p>
-                            <p><form:radiobutton cssClass="ms-4" path="travel" value="Tau thuyen"/> Tau Thuyen</p>
-                            <p><form:radiobutton cssClass="ms-4" path="travel" value="Oto"/> Oto </p>
-                            <p><form:radiobutton cssClass="ms-4" path="travel" value="khac"/> khac </p>
+                            <form:radiobutton cssClass="ms-4" path="travel" value="Tau thuyen"/>
+                            <form:radiobutton cssClass="ms-4" path="travel" value="Oto"/>
+                            <form:radiobutton cssClass="ms-4" path="travel" value="khac"/>
                         </div>
 
                     </div>
