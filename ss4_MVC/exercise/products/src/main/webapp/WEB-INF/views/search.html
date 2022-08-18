@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+
+</body>
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+         <h5> PRODUCT LIST SEARCH</h5>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>STT</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>SLL</th>
+                <th>Details</th>
+
+            </tr>
+            <tr th:each="products,STT : ${listProduct}">
+                <td th:text="${STT.count}"></td>
+                <td th:text="${products.id}"></td>
+                <td th:text="${products.name}"></td>
+                <td th:text="${products.price}"></td>
+                <td th:text="${products.counts}"></td>
+                <td th:text="${products.note}"></td>
+
+            </tr>
+        </table>
+    </div>
+    <div class="col-lg-2"></div>
+
+
+</div>
+</html>
