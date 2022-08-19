@@ -5,7 +5,7 @@ import web.model.Product;
 import java.util.List;
 
 public interface IProductService {
-    List<Product> display();
+    List<Product> display(String name);
     void create (Product product);
     void update (Product product);
     void delete (String id);

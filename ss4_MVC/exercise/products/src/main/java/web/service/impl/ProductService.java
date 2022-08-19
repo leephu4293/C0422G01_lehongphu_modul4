@@ -14,8 +14,16 @@ public class ProductService implements IProductService {
     private IProductRepository productRepository;
 
     @Override
-    public List<Product> display() {
-        return this.productRepository.display();
+    public List<Product> display(String name) {
+        List<Product> list=this.productRepository.display();
+            for (int i = 0; i < list.size(); i++) {
+                if (!list.get(i).getName().contains(name)){
+                    list.remove(i);
+                    i--;
+                }
+            }
+
+        return list;
     }
 
     @Override

@@ -19,6 +19,7 @@ public class ProductRepository implements IProductRepository {
         productMap.put("3", new Product("3", "beer", "2000", "15", "12% ancohol"));
         productMap.put("4", new Product("4", "pepsi", "2000", "22", "new form"));
         productMap.put("5", new Product("5", "wine", "2000", "9", "whisky"));
+        productMap.put("6", new Product("6", "Trung", "200000", "10", "Dep trai"));
     }
 
     @Override

@@ -14,9 +14,9 @@ public class ProductController {
     @Autowired
     private IProductService productService;
 
-    @GetMapping("/")
-    public String home(Model model) {
-        List<Product> productList = this.productService.display();
+    @GetMapping({"/"})
+    public String home(Model model ,@RequestParam(required = false,defaultValue = "") String name ) {
+        List<Product> productList = this.productService.display(name);
         model.addAttribute("product", new Product());
         model.addAttribute("listProduct", productList);
         return "home";
@@ -60,11 +60,6 @@ public class ProductController {
         return "details";
     }
 
-    @PostMapping("/search")
-    public String search(@RequestParam String name, Model model) {
-        List<Product> productList = this.productService.search(name);
-        model.addAttribute("listProduct", productList);
-        return "search";
-    }
+
 
 }
