@@ -1,0 +1,87 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+
+        <h5>PRODUCTS LIST</h5>
+        <a href="/create" class="btn btn-primary m-2">Create</a>
+        <form action="/" >
+            <input type="text" name="name">
+            <button type="submit">search</button>
+        </form>
+        <table class="table table-dark table-striped">
+            <tr>
+                <th>STT</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>SLL</th>
+                <th>Details</th>
+                <th colspan="3" style="text-align: center">Action</th>
+            </tr>
+            <tr th:each="products,STT : ${listProduct}">
+                <td th:text="${STT.count}"></td>
+                <td th:text="${products.id}"></td>
+                <td th:text="${products.name}"></td>
+                <td th:text="${products.price}"></td>
+                <td th:text="${products.counts}"></td>
+                <td th:text="${products.note}"></td>
+                <td><a th:href="@{/update/{id}(id=${products.id})}">edit</a></td>
+                <td><a class="btn btn-primary"
+                       data-bs-toggle="modal" data-bs-target="#exampleModal"
+                       th:onclick="|modalDelele('${products.name}','${products.id}')|">delete</a></td>
+                <td><a th:href="@{/details/{id}(id=${products.id})}">details</a></td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="col-lg-2"></div>
+
+    <form action="/delete" id="yes">
+        <input type="hidden" name="id" id="take">
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure to delete
+                    <input readonly id="form">
+                    <input readonly id="name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn btn-primary" th:onclick="|sumbitForm()|">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="../../bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<script src="../../bootstrap-5.0.2-dist/jquery-3.6.0.min.js"></script>
+</body>
+<script>
+    function modalDelele(name, id) {
+        document.getElementById("form").value = id;
+        console.log(id)
+        document.getElementById("name").value = name;
+        document.getElementById("take").value = id;
+        console.log(name)
+    }
+
+    function sumbitForm() {
+        document.getElementById("yes").submit();
+    }
+</script>
+</html>
