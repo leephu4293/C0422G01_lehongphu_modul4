@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:object="${music}" method="post" action="/update">
+    <label>ID</label>
+    <input th:field="*{id}">
+    <label>Name</label>
+    <input th:field="*{name}">
+    <label>Singer</label>
+    <input th:field="*{singer}">
+    <label> Type</label>
+    <input th:field="*{form}">
+    <label>Link</label>
+    <input th:field="*{link}">
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>

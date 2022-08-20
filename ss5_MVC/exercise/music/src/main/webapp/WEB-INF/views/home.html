@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
+</head>
+<body>
+<table class="table table-hover">
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Singer</th>
+        <th>Type</th>
+        <th>Link</th>
+        <th colspan="3">Action</th>
+
+    </tr>
+    <tr th:each="music, STT : ${list}">
+        <td th:text="${STT.count}"></td>
+        <td th:text="${music.id}"></td>
+        <td th:text="${music.name}"></td>
+        <td th:text="${music.singer}"></td>
+        <td th:text="${music.form}"></td>
+        <td th:text="${music.link}"></td>
+        <td><a href="/create/">add</a></td>
+        <td><a th:href="@{/update/{id}(id=${music.id})}">update</a></td>
+        <td><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+               th:onclick="|deleteMusic('${music.id}','${music.name}')|">delete</a></td>
+    </tr>
+</table>
+
+<form action="/delete" method="post" id="goDelete">
+    <input hidden name="take" id="formId">
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ARE YOU SURE DELETE
+                <p><input readonly id="idShow"></p>
+                <p><input readonly id="nameShow"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" th:onclick="|confirmDelete()|">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../../bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+</body>
+<script>
+    function deleteMusic(id, name) {
+        document.getElementById("idShow").value = id;
+        document.getElementById("nameShow").value = name;
+        document.getElementById("formId").value = id;
+    }
+
+    function confirmDelete() {
+        document.getElementById("goDelete").submit();
+    }
+
+</script>
+
+
+</html>
