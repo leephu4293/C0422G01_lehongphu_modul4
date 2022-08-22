@@ -6,16 +6,17 @@
     <link rel="stylesheet" href="../../bootstrap-5.0.2-dist/css/bootstrap.min.css">
 </head>
 <body>
-<table class="table table-hover">
+<div class="container-fluid">
+    <a href="/create">add</a>
+    <table class="table table-hover " >
     <tr>
         <th>STT</th>
         <th>ID</th>
         <th>Name</th>
         <th>Singer</th>
         <th>Type</th>
-        <th>Link</th>
-        <th colspan="3">Action</th>
-
+        <th>link</th>
+        <th colspan="3">chuc nang</th>
     </tr>
     <tr th:each="music, STT : ${list}">
         <td th:text="${STT.count}"></td>
@@ -23,13 +24,17 @@
         <td th:text="${music.name}"></td>
         <td th:text="${music.singer}"></td>
         <td th:text="${music.form}"></td>
-        <td th:text="${music.link}"></td>
-        <td><a href="/create/">add</a></td>
+        <td>
+            <audio controls>
+                <source type="audio/mpeg" th:src="@{'/CODEGYM/C0422G01_lehongphu_modul4/upfile/' + ${music.link}}">
+            </audio>
+        </td>
         <td><a th:href="@{/update/{id}(id=${music.id})}">update</a></td>
         <td><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                th:onclick="|deleteMusic('${music.id}','${music.name}')|">delete</a></td>
     </tr>
 </table>
+</div>
 
 <form action="/delete" method="post" id="goDelete">
     <input hidden name="take" id="formId">

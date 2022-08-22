@@ -44,8 +44,7 @@ public class ProductRepository implements IProductRepository {
 
     @Override
     public Product findById(String id) {
-        Product product = BaseRepository.entityManager.find(Product.class, id);
-        return product;
+        return BaseRepository.entityManager.find(Product.class, id);
     }
 
     @Override
@@ -53,7 +52,7 @@ public class ProductRepository implements IProductRepository {
         TypedQuery<Product> typedQuery =
                 BaseRepository.entityManager.createQuery("select p from Product p " +
                         "where p.name like :nameFind", Product.class);
-        typedQuery.setParameter("nameFind", name);
+        typedQuery.setParameter("nameFind", "%"+name+"%");
         return typedQuery.getResultList();
     }
 }

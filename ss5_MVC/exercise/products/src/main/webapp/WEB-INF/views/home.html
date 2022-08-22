@@ -35,7 +35,9 @@
                 <td><a class="btn btn-primary"
                        data-bs-toggle="modal" data-bs-target="#exampleModal"
                        th:onclick="|modalDelele('${products.name}','${products.id}')|">delete</a></td>
-                <td><a th:href="@{/details/{id}(id=${products.id})}">details</a></td>
+                <td><a class="btn btn-primary"
+                       data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                th:onclick="|showdetails('${STT.count}','${products.id}','${products.name}', '${products.price}','${products.counts}','${products.note}')|">details</a></td>
             </tr>
         </table>
 
@@ -56,12 +58,38 @@
                 </div>
                 <div class="modal-body">
                     Are you sure to delete
-                    <input readonly id="form">
+                    <input readonly id ="form">
                     <input readonly id="name">
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                     <button type="button" class="btn btn-primary" th:onclick="|sumbitForm()|">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel1">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    DETAILS
+                    <p><input readonly id="showSTT"></p>
+                    <p><input readonly id="showId"></p>
+                    <p><input readonly id="showName"></p>
+                    <p><input readonly id="showPrice"></p>
+                    <p><input readonly id="showCount"></p>
+                    <p><input readonly id="showNote"></p>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -79,7 +107,14 @@
         document.getElementById("take").value = id;
         console.log(name)
     }
-
+    function showdetails (stt,id,name,price,counts,note){
+        document.getElementById("showSTT").value = stt;
+        document.getElementById("showId").value = id;
+        document.getElementById("showName").value = name;
+        document.getElementById("showPrice").value = price;
+        document.getElementById("showCount").value = counts;
+        document.getElementById("showNote").value = note;
+    }
     function sumbitForm() {
         document.getElementById("yes").submit();
     }

@@ -1,5 +1,7 @@
 package web.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.persistence.*;
 
 
@@ -13,8 +15,27 @@ public class Music {
     private String singer;
     private String form;
     private String link;
+    @Transient
+    private  MultipartFile linkHeard;
 
     public Music() {
+    }
+
+    public Music(String name, String singer, String form, String link, MultipartFile linkHeard) {
+        this.name = name;
+        this.singer = singer;
+        this.form = form;
+        this.link = link;
+        this.linkHeard = linkHeard;
+    }
+
+    public Music(int id, String name, String singer, String form, String link, MultipartFile linkHeard) {
+        this.id = id;
+        this.name = name;
+        this.singer = singer;
+        this.form = form;
+        this.link = link;
+        this.linkHeard = linkHeard;
     }
 
     public Music(int id, String name, String singer, String form, String link) {
@@ -23,6 +44,14 @@ public class Music {
         this.singer = singer;
         this.form = form;
         this.link = link;
+    }
+
+    public MultipartFile getLinkHeard() {
+        return linkHeard;
+    }
+
+    public void setLinkHeard(MultipartFile linkHeard) {
+        this.linkHeard = linkHeard;
     }
 
     public int getId() {
@@ -64,4 +93,12 @@ public class Music {
     public void setLink(String link) {
         this.link = link;
     }
+
+//    public MultipartFile getLinkHeard() {
+//        return linkHeard;
+//    }
+//
+//    public void setLinkHeard(MultipartFile linkHeard) {
+//        this.linkHeard = linkHeard;
+//    }
 }

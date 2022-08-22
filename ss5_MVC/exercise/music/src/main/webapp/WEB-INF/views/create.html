@@ -1,19 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form th:object="${music}" method="post" action="/add">
+<form th:object="${music}" method="post" action="/add" enctype="multipart/form-data" >
     <label>Name</label>
-    <input th:field="*{name}">
+    <input type="text" th:field="*{name}">
     <label>Singer</label>
-    <input th:field="*{singer}">
+    <input type="text" th:field="*{singer}">
     <label> Type</label>
-    <input th:field="*{form}">
-    <label>Link</label>
-    <input th:field="*{link}">
+    <input type="text" th:field="*{form}">
+    <input  type="file" th:field="*{linkHeard}" >
     <button type="submit">submit</button>
 </form>
 </body>
