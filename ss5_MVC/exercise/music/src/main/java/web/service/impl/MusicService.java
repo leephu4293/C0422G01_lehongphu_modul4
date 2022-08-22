@@ -31,7 +31,7 @@ public class MusicService implements IMusicService {
         try {
             file = music.getLinkHeard().getOriginalFilename();
             FileCopyUtils.copy(music.getLinkHeard().getBytes(),
-                    new File("D:/CODEGYM/C0422G01_lehongphu_modul4/upfile/" + file));
+                    new File("D:/CODEGYM/C0422G01_lehongphu_modul4/ss5_MVC/exercise/upfile/" + file));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,7 +52,7 @@ public class MusicService implements IMusicService {
         if (file!= ""){
             try {
                 FileCopyUtils.copy(music.getLinkHeard().getBytes(),
-                        new File("D:/CODEGYM/C0422G01_lehongphu_modul4/upfile/" + file));
+                        new File("D:/CODEGYM/C0422G01_lehongphu_modul4/ss5_MVC/exercise/upfile/" + file));
             } catch (IOException e) {
                 e.printStackTrace();
             }

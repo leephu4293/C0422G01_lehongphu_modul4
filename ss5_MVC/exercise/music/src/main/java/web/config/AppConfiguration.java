@@ -66,7 +66,7 @@ public class AppConfiguration extends WebMvcConfigurerAdapter implements Applica
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/CODEGYM/C0422G01_lehongphu_modul4/upfile/**")
+        registry.addResourceHandler("D:/CODEGYM/C0422G01_lehongphu_modul4/ss5_MVC/exercise/upfile/**")
                 .addResourceLocations("file:" + fileUpload);
 
     }
