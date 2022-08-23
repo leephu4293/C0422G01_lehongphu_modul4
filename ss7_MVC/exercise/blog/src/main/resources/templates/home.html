@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+<a href="/create" class="btn btn-danger"> Create</a>
+<table class="table table-light">
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>TYPE</th>
+        <th>NOTE</th>
+        <th>UPDATE</th>
+        <th>DELETE</th>
+        <th>DETAILS</th>
+    </tr>
+    <tr th:each="blogs,STT:${blog}">
+        <td th:text="${STT.count}"></td>
+        <td th:text="${blogs.idBlog}"></td>
+        <td th:text="${blogs.name}"></td>
+        <td th:text="${blogs.type}"></td>
+        <td th:text="${blogs.note}"></td>
+        <td><a th:href="@{/update/{id}(id=${blogs.idBlog})}" class="btn-primary btn">update</a></td>
+        <td><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+               th:attr="onclick= |deleteModal('${blogs.idBlog}','${blogs.name}')|">delete</a></td>
+        <td><a th:href="@{/detail/{id}(id=${blogs.idBlog})}" class="btn btn-primary">details</a></td>
+    </tr>
+</table>
+
+
+<form action="/delete" method="post" id="formGo">
+    <input hidden id="formSend" name="take">
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><input id="id1"></p>
+                <p><input id="id2"></p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
+                <button type="button" class="btn btn-danger" th:onclick="|confirmModal()|">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/bootstrap.min.js"></script>
+</body>
+<script>
+    function deleteModal(id, name) {
+        document.getElementById("id1").value = id;
+        document.getElementById("formSend").value = id;
+        document.getElementById("id2").value = name;
+    }
+
+    function confirmModal() {
+        document.getElementById("formGo").submit();
+    }
+</script>
+</html>
