@@ -25,17 +25,16 @@ public class BlogController {
     private ICategoryService categoryService;
 
     @GetMapping({"/", "/search"})
-    public String divine(@PageableDefault(value = 2) Pageable pageable, Model model,
+    public String divine(@PageableDefault(value = 2, sort = "name") Pageable pageable, Model model,
                          @RequestParam Optional<String> findBlog,
-                         @RequestParam Optional<Integer> searchCategory)
-            {
+                         @RequestParam Optional<Integer> searchCategory) {
         String str = findBlog.orElse("");
         Integer id = searchCategory.orElse(0);
         List<Category> categoryList = this.categoryService.findAll();
-        model.addAttribute("category",categoryList);
-        model.addAttribute("keySearch",str);
-        model.addAttribute("idSearch",id);
-        Page<Blog> blogPage = this.blogService.findByNameContainingAndCategory_IdCategory(str,id,pageable);
+        model.addAttribute("category", categoryList);
+        model.addAttribute("keySearch", str);
+        model.addAttribute("idSearch", id);
+        Page<Blog> blogPage = this.blogService.findByNameContainingAndCategory_IdCategory(str, id, pageable);
         model.addAttribute("divine", blogPage);
         return "home";
     }

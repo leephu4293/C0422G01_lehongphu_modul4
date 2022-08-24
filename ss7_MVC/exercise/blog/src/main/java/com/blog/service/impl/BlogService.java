@@ -12,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 
-
 @Service
 public class BlogService implements IBlogService {
 
@@ -38,21 +37,19 @@ public class BlogService implements IBlogService {
 
     @Override
     public Page<Blog> findByNameContainingAndCategory_IdCategory(String name, Integer id, Pageable pageable) {
-        Page<Blog> blogPage= null;
-        if(id==0){
-            blogPage=this.iBlogRepository.findAllByNameContaining(name,pageable);
-        }else {
-            blogPage=this.iBlogRepository.findByNameContainingAndCategory_IdCategory(name,id,pageable);
+        Page<Blog> blogPage = null;
+        if (id == 0) {
+            blogPage = this.iBlogRepository.findAllByNameContaining(name, pageable);
+        } else {
+            blogPage = this.iBlogRepository.findByNameContainingAndCategory_IdCategory(name, id, pageable);
         }
         return blogPage;
     }
 
     @Override
     public Page<Blog> findAllByNameContaining(String name, Pageable pageable) {
-        return this.iBlogRepository.findAllByNameContaining(name,pageable);
+        return this.iBlogRepository.findAllByNameContaining(name, pageable);
     }
-
-
 
 
 }

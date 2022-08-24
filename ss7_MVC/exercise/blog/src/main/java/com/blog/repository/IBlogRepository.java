@@ -6,10 +6,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
-
 public interface IBlogRepository extends JpaRepository<Blog, Integer> {
-   Page<Blog> findAllByNameContaining(String name, Pageable pageable);
-   Page<Blog> findByNameContainingAndCategory_IdCategory(String name,Integer id, Pageable pageable);
+    Page<Blog> findAllByNameContaining(String name, Pageable pageable);
+
+    Page<Blog> findByNameContainingAndCategory_IdCategory(String name, Integer id, Pageable pageable);
 
 
 }

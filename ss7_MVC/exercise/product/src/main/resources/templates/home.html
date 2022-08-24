@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="col-lg-2">
+        <a class="btn btn-danger" href="/create">Create</a>
+
+        <form action="/search">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">SearchByName</label>
+                <input type="text" class="form-control" id="exampleInputEmail1"
+                       aria-describedby="emailHelp" name="findBlog" th:class="w-25">
+            </div>
+            <button type="submit" class="btn-danger mt-2">Search</button>
+        </form>
+    </div>
+    <div class="col-lg-8">
+        <table class="table table-responsive-lg">
+            <tr>
+                <th>STT</th>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>SLL</th>
+                <th>Details</th>
+                <th colspan="3">Details</th>
+            </tr>
+            <tr th:each="products ,STT : ${pageHome}">
+                <td th:text="${STT.count}"></td>
+                <td th:text="${products.id}"></td>
+                <td th:text="${products.name}"></td>
+                <td th:text="${products.price}"></td>
+                <td th:text="${products.counts}"></td>
+                <td th:text="${products.note}"></td>
+                <td><a th:href="@{/update/{id}(id=${products.id})}">Update</a></td>
+                <td><a th:href="@{/detail/{id}(id=${products.id})}">detail</a></td>
+                <td><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                       th:attr="onclick= |deleteModal('${products.id}','${products.name}')|">delete</a></td>
+            </tr>
+        </table>
+        <div>
+            <a th:if="${pageHome.hasPrevious()}" th:href="@{'/'(page=${pageHome.number -1},findBlog=${keySearch})}">Previous</a>
+            <span th:text="${pageHome.number +1}"></span>/<span th:text="${pageHome.totalPages}"></span>
+            <a th:if="${pageHome.hasNext()}" th:href="@{'/'(page=${pageHome.number +1},findBlog=${keySearch})}">Next</a>
+        </div>
+
+    </div>
+    <div class="col-lg-2"></div>
+
+</div>
+
+
+<form action="/delete" method="post" id="formGo">
+    <input hidden id="formSend" name="take">
+</form>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><input id="id1"></p>
+                <p><input id="id2"></p>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">no</button>
+                <button type="button" class="btn btn-danger" th:onclick="|confirmModal()|">Yes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/bootstrap.min.js"></script>
+</body>
+<script>
+    function deleteModal(id, name) {
+        document.getElementById("id1").value = id;
+        document.getElementById("formSend").value = id;
+        document.getElementById("id2").value = name;
+    }
+
+    function confirmModal() {
+        document.getElementById("formGo").submit();
+    }
+</script>
+</html>
