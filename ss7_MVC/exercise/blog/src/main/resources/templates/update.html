@@ -8,7 +8,11 @@
 <form action="/update" method="post" th:object="${blogUpdate}">
     <input readonly th:field="*{idBlog}">
     <input th:field="*{name}">
-    <input th:field="*{type}">
+    <select th:field="*{category}">
+        <option th:each="categorys : ${category}"
+        th:value="${categorys.idCategory}"
+        th:text="${categorys.name}"></option>
+    </select>
     <input th:field="*{note}">
     <button type="submit">submit</button>
 </form>

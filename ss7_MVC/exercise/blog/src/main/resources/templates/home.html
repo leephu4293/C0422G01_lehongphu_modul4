@@ -6,7 +6,27 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
-<a href="/create" class="btn btn-danger"> Create</a>
+
+<form action="/search">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">SearchByName</label>
+        <input type="text" class="form-control" id="exampleInputEmail1"
+               aria-describedby="emailHelp" name="findBlog" th:class="w-25">
+    </div>
+
+    <select class="form-select" aria-label="Default select example" th:object="${category}" name="searchCategory">
+        <option value="" name="pick"> pick </option>
+        <option th:each="categorySearch : ${category}"
+       th:value="${categorySearch.idCategory}"
+        th:text="${categorySearch.name}" >One</option>
+    </select>
+    <button type="submit" class="btn-danger mt-2">Search</button>
+</form>
+
+
+
+
+<a href="/create" class="btn btn-danger mt-2"> Create </a>
 <table class="table table-light">
     <tr>
         <th>STT</th>
@@ -18,11 +38,12 @@
         <th>DELETE</th>
         <th>DETAILS</th>
     </tr>
-    <tr th:each="blogs,STT:${blog}">
+
+    <tr  th:each="blogs,STT:${divine}">
         <td th:text="${STT.count}"></td>
         <td th:text="${blogs.idBlog}"></td>
         <td th:text="${blogs.name}"></td>
-        <td th:text="${blogs.type}"></td>
+        <td th:text="${blogs.category.name}"></td>
         <td th:text="${blogs.note}"></td>
         <td><a th:href="@{/update/{id}(id=${blogs.idBlog})}" class="btn-primary btn">update</a></td>
         <td><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
@@ -31,7 +52,16 @@
     </tr>
 </table>
 
+<!--phan trang-->
+<div>
+    <a th:if="${divine.hasPrevious()}"
+       th:href="@{'/'(page=${divine.number - 1},findBlog=${keySearch},searchCategory=${idSearch})}">Previous</a>
+    <span th:text="${divine.number +1}"></span>/<span th:text="${divine.totalPages}"></span>
+    <a th:if="${divine.hasNext()}"
+       th:href="@{'/'(page=${divine.number + 1},findBlog=${keySearch},searchCategory=${idSearch})}">Next</a>
+</div>
 
+<!--modal-->
 <form action="/delete" method="post" id="formGo">
     <input hidden id="formSend" name="take">
 </form>

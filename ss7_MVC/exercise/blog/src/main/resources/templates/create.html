@@ -9,7 +9,12 @@
     <p>Name</p>
     <input th:field="*{name}">
     <p>Type</p>
-    <input th:field="*{type}">
+    <select th:field="*{category}">
+        <option th:each="categorys : ${category}"
+        th:value="${categorys.idCategory}"
+        th:text="${categorys.name}">
+        </option>
+    </select>
     <p>Note</p>
     <textarea th:field="*{note}"></textarea>
     <button type="submit">submit</button>
