@@ -1,7 +1,7 @@
 package com.form.controller;
 
 import com.form.model.UserFrom;
-import com.form.model.UserFromDto;
+import com.form.model.Dto.UserFromDto;
 import com.form.service.IUserFormService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

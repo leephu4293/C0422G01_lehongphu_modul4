@@ -1,4 +1,4 @@
-package com.form.model;
+package com.form.model.Dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
