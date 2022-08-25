@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script>
+
+    </script>
+</head>
+<body>
+<div class="row">
+    <div class="col-lg-2">
+
+    </div>
+
+    <div class="col-lg-8">
+        <h1 class="d-flex justify-content-lg-center">USER FROM</h1>
+        <form action="/add" method="post" th:object="${userFromDto}" class="container mt-2">
+            <input class="form-control mt-2 " placeholder="firstName" th:field="*{firstName}">
+            <div  class="text-danger mt-2" th:errors="*{firstName}"></div>
+            <input class="form-control mt-2" placeholder="lastName" th:field="*{lastName}">
+            <div   class="text-danger mt-2" th:errors="*{lastName}"></div>
+            <input class="form-control mt-2" placeholder="phone" th:field="*{phone}">
+            <div  class="text-danger mt-2" th:errors="*{phone}"></div>
+            <input class="form-control mt-2" placeholder="dayOfBirth" type="date" th:field="*{age}">
+            <div class="text-danger mt-2" th:errors="*{age}"></div>
+            <input class="form-control mt-2" placeholder="email" th:field="*{email}">
+            <div  class="text-danger mt-2 " th:errors="*{email}"></div>
+            <button type="submit " class="btn-danger btn mt-2">submit</button>
+        </form>
+    </div>
+
+    <div class="col-lg-2"></div>
+</div>
+
+
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

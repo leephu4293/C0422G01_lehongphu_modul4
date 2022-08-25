@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+<div class="row container">
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-8">
+        <table class="table table-active">
+            <tr>
+                 <th>STT</th>
+                 <th>ID</th>
+                 <th>FIRST NAME</th>
+                 <th>LAST NAME</th>
+                 <th>AGE</th>
+                 <th>PHONE</th>
+            </tr>
+            <tr th:each="forms, STT : ${pageDivine}">
+                <td th:text="${STT.count}"></td>
+                <td th:text="${forms.idUser}"></td>
+                <td th:text="${forms.firstName}"></td>
+                <td th:text="${forms.lastName}"></td>
+                <td th:text="${forms.age}"></td>
+                <td th:text="${forms.phone}"></td>
+            </tr>
+        </table>
+        <a href="/create" class="btn btn-danger">Create</a>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+
+
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
