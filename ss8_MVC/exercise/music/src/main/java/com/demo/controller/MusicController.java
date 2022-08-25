@@ -55,11 +55,10 @@ public class MusicController {
     }
     @PostMapping("/edit")
     public String update(@ModelAttribute @Valid MusicDto musicDto,BindingResult bindingResult){
-        Music music = new Music();
         if(bindingResult.hasErrors()){
             return "update";
         }else {
-            BeanUtils.copyProperties(musicDto,music);
+            Music music = new Music(musicDto.getId(),musicDto.getName(),musicDto.getSinger(),musicDto.getType());
             this.iMusicService.save(music);
         return "redirect:/";
     }

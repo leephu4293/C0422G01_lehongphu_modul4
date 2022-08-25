@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -15,12 +16,15 @@ import javax.validation.constraints.Pattern;
 public class MusicDto {
     private Integer id;
     @NotBlank
-    @Pattern(regexp = "^[A-Za-z ]{800}$", message = "nhap trong gioi han 800")
+    @Pattern(regexp = "^[A-Za-z]+$", message = "vui long nhap chu")
+    @Size(max = 800)
     private String name;
     @NotBlank
-    @Pattern(regexp = "^[A-Za-z ]{300}$",message = "nhap trong gioi han 300")
+    @Size(max = 300)
+    @Pattern(regexp = "^[A-Za-z]+$",message = "vui long nhap chu")
     private String singer;
     @NotBlank
-    @Pattern(regexp ="^[A-Za-z ]{1000}$", message = "nhap trong gioi han 1000")
+    @Size(max = 1000)
+    @Pattern(regexp ="^[A-Za-z,]+$", message = "vui long nhap chu")
     private String type;
 }
