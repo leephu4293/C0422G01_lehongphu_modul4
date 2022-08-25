@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
 <form action="/edit" method="post" th:object="${musicDto}">
     <input th:field="*{id}" readonly>
     <input th:field="*{name}">
-    <div th:errors="*{name}"></div>
+    <div th:errors="*{name}" class="text-danger"></div>
     <input th:field="*{singer}">
+    <div th:errors="*{singer}" class="text-danger"></div>
     <input th:field="*{type}">
+    <div th:errors="*{type}" class="text-danger"></div>
     <button type="submit">submit</button>
 </form>
+<script src="../js/bootstrap.min.js"></script>
 </body>
 </html>
