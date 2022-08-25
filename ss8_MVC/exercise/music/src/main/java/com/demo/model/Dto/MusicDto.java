@@ -14,17 +14,21 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MusicDto {
+
     private Integer id;
+
     @NotBlank
-    @Pattern(regexp = "^[A-Za-z]+$", message = "vui long nhap chu")
     @Size(max = 800)
+    @Pattern(regexp = "^[A-Za-z ]*$", message = "vui long nhap chu")
     private String name;
+
     @NotBlank
     @Size(max = 300)
-    @Pattern(regexp = "^[A-Za-z]+$",message = "vui long nhap chu")
+    @Pattern(regexp = "^[A-Za-z ]*$",message = "vui long nhap chu")
     private String singer;
+
     @NotBlank
     @Size(max = 1000)
-    @Pattern(regexp ="^[A-Za-z,]+$", message = "vui long nhap chu")
+    @Pattern(regexp = "^[A-Za-z, ]*$", message = "vui long nhap chu")
     private String type;
 }
