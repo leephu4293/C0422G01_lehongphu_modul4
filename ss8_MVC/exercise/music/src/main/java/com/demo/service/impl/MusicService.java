@@ -21,7 +21,7 @@ public class MusicService implements IMusicService {
 
     @Override
     public Music findById(int id) {
-        return this.iMusicRepository.getById(id);
+        return this.iMusicRepository.findById(id).orElse(null);
     }
 
     @Override

@@ -47,11 +47,14 @@ public class MusicController {
     }
     @GetMapping("/update/{id}")
     public String showUpdate(Model model, @PathVariable int id){
-        model.addAttribute("musicDto",this.iMusicService.findById(id));
+        Music music = this.iMusicService.findById(id);
+        MusicDto musicDto = new MusicDto();
+        BeanUtils.copyProperties(music,musicDto);
+        model.addAttribute("musicDto",musicDto);
         return "update";
     }
     @PostMapping("/edit")
-    public String update(@ModelAttribute MusicDto musicDto,BindingResult bindingResult){
+    public String update(@ModelAttribute @Valid MusicDto musicDto,BindingResult bindingResult){
         Music music = new Music();
         if(bindingResult.hasErrors()){
             return "update";
