@@ -1,5 +1,6 @@
 package com.form.controller;
 
+import com.form.common.CheckValidate;
 import com.form.model.UserFrom;
 import com.form.model.Dto.UserFromDto;
 import com.form.service.IUserFormService;
@@ -39,7 +40,7 @@ public class UserFromController {
     public String add(@ModelAttribute("userFromDto") @Valid UserFromDto userFromDto, BindingResult bindingResult) {
         UserFrom userFrom = new UserFrom();
         String str = userFromDto.getAge();
-        new UserFromDto().validate(userFromDto, bindingResult);
+        new CheckValidate().validate(userFromDto, bindingResult);
             if (bindingResult.hasErrors()) {
                 return "create";
             }
