@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   <form action="/update" method="post" th:object="${booksDto}">
+       <input th:field="*{id}"  name="idDetails" readonly>
+       <input th:field="*{name}" >
+       <input th:field="*{type}" >
+       <input th:field="*{counts}"  name="counts">
+       <button type="submit">Borrow</button>
+   </form>
+    <div th:text="${msg}"></div>
+</body>
+</html>
