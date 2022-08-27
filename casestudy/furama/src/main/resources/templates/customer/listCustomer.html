@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<div class="container-fluid">
+
+<nav th:replace="~{home :: navbarHome}"></nav>
+
+<h2 class="text-lg-center"> DANH SACH KHACH HANG</h2>
+
+
+ <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+
+        <table class="table table-striped" id="testTable">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th>ID </th>
+                <th> LOAI KHACH </th>
+                <th>HO TEN </th>
+                <th>NGAY SINH</th>
+                <th>GIOI TINH</th>
+                <th>SO CMND</th>
+                <th>DIEN THOAI </th>
+                <th>EMAIL  </th>
+                <th> DIA CHI   </th>
+                <th> SUA   </th>
+                <th> XOA   </th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="customer" items="${ListCustomer}" varStatus="STT">
+
+                <tr>
+                    <td>${STT.count}</td>
+                    <td>${customer.id}</td>
+
+                    <c:forEach var="type" items="${ListType}">
+                        <c:if test="${customer.customerType == type.idType}">
+                            <td>${type.nameType}</td>
+                        </c:if>
+                    </c:forEach>
+
+                    <td>${customer.name}</td>
+                    <td>${customer.dayOfBirth}</td>
+
+                    <c:if test="${customer.gender == true}">
+                        <td>Nam</td>
+                    </c:if>
+                    <c:if test="${customer.gender == false}">
+                        <td>Nu</td>
+                    </c:if>
+
+                    <td>${customer.iden}</td>
+                    <td>${customer.phone}</td>
+                    <td>${customer.email}</td>
+                    <td>${customer.address}</td>
+                    <td><a class="btn btn-primary" href="/view?action=update&id=${customer.id} ">SUA</a></td>
+                    <td><a class="btn btn-danger" href="/view?action=delete&id=${customer.id} "
+                           data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="modaldelate(${customer.id})">XOA</a></td>
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+        <form action="/view" id="deletefrom">
+            <input hidden name="action" value="delete">
+            <input hidden name="idcus" id="takeId">
+        </form>
+    </div>
+    <div class="col-lg-1"></div>
+</div>
+</div>
+<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>
