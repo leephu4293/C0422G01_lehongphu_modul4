@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<body>
+<nav th:replace="~{home :: navbarHome}"></nav>
+
+<h2 class="text-lg-center container-fluid"> DANH SACH DICH VU </h2>
+
+<div class="row">
+    <div class="col-lg-12">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>STT</th>
+                <th scope="col">MA DV</th>
+                <th scope="col">TEN DICH VU</th>
+                <th scope="col">DIEN TICH SU DUNG</th>
+                <th scope="col">CHI PHI THUE</th>
+                <th scope="col">SO NGUOI TOI DA</th>
+                <th scope="col"> MA KIEU THUE</th>
+                <th scope="col"> MA LOAI DICH VU</th>
+                <th scope="col"> TIEU CHUAN PHONG</th>
+                <th scope="col"> TIEN NGHI KHAC</th>
+                <th scope="col"> DIEN TICH HO BOI</th>
+                <th scope="col"> SO TANG</th>
+                <th scope="col"> DICH VU DI KEM</th>
+                <th scope="col"> SUA</th>
+                <th scope="col"> XOA</th>
+            </tr>
+            </thead>
+            <tbody>
+            <c:forEach var="list" items="${list}" varStatus="STT">
+                <tr>
+                    <td>${STT.count}</td>
+                    <th>${list.facilityCode}</th>
+                    <td>${list.name}</td>
+                    <td>${list.area}</td>
+                    <td>${list.cost}</td>
+                    <td>${list.maxPeople}</td>
+                    <td>
+                        <c:forEach var="rent" items="${listRent}">
+                            <c:if test="${list.rentTypeCode == rent.rentCode}">
+                                <span> ${rent.nameRent} </span>
+                            </c:if>
+                        </c:forEach>
+                    </td>
+                    <td><c:forEach var="listType" items="${listType}">
+                        <c:if test="${listType.typeServiceCode == list.facilityTypeCode}">
+                            ${listType.nameService}
+                        </c:if>
+                    </c:forEach></td>
+                    <td>${list.roomStandar}</td>
+                    <td>${list.anyElse}</td>
+                    <td>${list.areaPool}</td>
+                    <td>${list.flood}</td>
+                    <td>${list.serviceFree}</td>
+                    <td><a class="btn btn-primary" href="/viewFacility?action=update&id=${list.facilityCode}">SUA</a>
+                    </td>
+                    <td><a class="btn btn-danger" data-bs-toggle="modal"
+                           data-bs-target="#exampleModal" href="/viewFacility?action=delete&code=${list.facilityCode}"
+                           onclick="deleteConfim(${list.facilityCode})">XOA</a></td>
+
+                </tr>
+            </c:forEach>
+            </tbody>
+        </table>
+
+        <form action="/viewFacility" id="deleteFac">
+            <input hidden name="action" value="delete">
+            <input hidden name="throwId" id="take">
+
+        </form>
+
+    </div>
+</div>
+
+<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>

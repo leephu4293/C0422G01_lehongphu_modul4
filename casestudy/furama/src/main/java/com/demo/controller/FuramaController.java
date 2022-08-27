@@ -14,4 +14,21 @@ public class FuramaController {
     public String showList(){
         return "/customer/listCustomer";
     }
+    @GetMapping("/create")
+    public String showCreate(){
+        return "/customer/createCustomer";
+    }
+    @GetMapping("/facilityList")
+    public String showFacility(){
+        return "/facility/listFacility";
+    }
+    @GetMapping("/createFacility")
+    public String createFacility(){
+        return "/facility/createFacility";
+    }
+    @GetMapping("/showCreateEmployee")
+    public String showEmpployee(){
+        return "/employee/createEmployee";
+    }
+
 }
