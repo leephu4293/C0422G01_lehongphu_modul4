@@ -22,16 +22,16 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6 " >
         <form class="text-dark bg-light" style="box-shadow:  10px 10px 10px black;
-         border-radius: 10px" action="/addFromFacility" method="post" th:object="${createFacility}">
-
+         border-radius: 10px" action="/updateFrom" method="post" th:object="${createFacility}">
+            <input hidden class="form-control rounded-3 w-75" name="name" placeholder="Ten Dich Vu" th:field="*{idFacility}" >
             <div class="css">
 
                 <label>  chon loai muon them </label>
                 <select  onchange="addNew(this.value)" name ="typecodeF" class="form-control rounded-3 w-75" th:field="*{typeService}">
                     <option value="0">Chon</option>
                     <option th:each="list : ${typeList}"
-                    th:value="${list.id}"
-                    th:text="${list.name}">Room</option>
+                            th:value="${list.id}"
+                            th:text="${list.name}">Room</option>
 
                 </select>
             </div>
@@ -51,11 +51,13 @@
             <div  class="css">
                 <label>Chi Phi</label>
                 <input type="number" class="form-control rounded-3 w-75" name="cost"  placeholder="Chi Phi"  th:field="*{cost}" >
+
             </div>
 
             <div  class="css">
                 <label>So Nguoi Toi Da</label>
                 <input type="number"  value=0 class="form-control rounded-3 w-75"  name="people" placeholder=" So Nguoi Toi Da" th:field="*{people}" >
+
             </div>
 
             <div  class="css" >
@@ -63,8 +65,8 @@
                 <select name="rent" class="form-control rounded-3 w-75" th:field="*{rentType}">
                     <option  value="0"> chon </option>
                     <option th:each="list : ${rentList}"
-                    th:value="${list.id}"
-                    th:text="${list.name}"></option>
+                            th:value="${list.id}"
+                            th:text="${list.name}"></option>
                 </select>
             </div>
 
@@ -121,6 +123,7 @@
                 document.getElementById("div4").style.display = "block"
                 document.getElementById("div5").style.display = "none"
                 document.getElementById("s5").value = " "
+
                 break
             case "2":
                 document.getElementById("div1").style.display = "block"

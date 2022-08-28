@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.demo.model.facility;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,21 +8,22 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "loai_khach")
-public class TypeCustomer {
+@Table(name = "kieu_thue")
+public class RentType {
     @Id
-    @Column(name = "ma_loai_khach")
+    @Column(name = "ma_kieu_thue")
     private Integer id;
 
-    @Column(name = "ten_loai_khach")
+    @Column(name = "ten_kieu_thue")
     private String name;
 
-    @OneToMany (mappedBy = "typeCustomer")
-    private List<Customer> customer;
+    @OneToMany(mappedBy = "rentType")
+    private List<Facility> facilities;
 
 }

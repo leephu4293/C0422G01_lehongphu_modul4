@@ -1,8 +1,8 @@
-package com.demo.service.impl;
+package com.demo.service.customer.impl;
 
-import com.demo.model.Customer;
+import com.demo.model.customer.Customer;
 import com.demo.repository.ICustomerRepository;
-import com.demo.service.ICustomerService;
+import com.demo.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,8 +29,7 @@ public class CustomerService  implements ICustomerService {
 
     @Override
     public void deleteById(int id) {
-        this.iCustomerRepository.findById(id);
+        this.iCustomerRepository.deleteById(id);
     }
-
 
 }
