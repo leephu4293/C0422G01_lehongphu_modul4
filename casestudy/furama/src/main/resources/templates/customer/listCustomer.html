@@ -35,48 +35,70 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="customer" items="${ListCustomer}" varStatus="STT">
 
-                <tr>
-                    <td>${STT.count}</td>
-                    <td>${customer.id}</td>
-
-                    <c:forEach var="type" items="${ListType}">
-                        <c:if test="${customer.customerType == type.idType}">
-                            <td>${type.nameType}</td>
-                        </c:if>
-                    </c:forEach>
-
-                    <td>${customer.name}</td>
-                    <td>${customer.dayOfBirth}</td>
-
-                    <c:if test="${customer.gender == true}">
+                <tr th:each="page,STT:${pageCustomer}">
+                    <td th:text="${STT.count}"></td>
+                    <td th:text="${page.id}"></td>
+                    <td th:text="${page.typeCustomer.name}"></td>
+                    <td th:text="${page.name}"></td>
+                    <td th:text="${page.date}"></td>
+                    <div th:if="${page.gender == true}">
                         <td>Nam</td>
-                    </c:if>
-                    <c:if test="${customer.gender == false}">
+                    </div>
+                    <div th:if="${not page.gender == true}">
                         <td>Nu</td>
-                    </c:if>
-
-                    <td>${customer.iden}</td>
-                    <td>${customer.phone}</td>
-                    <td>${customer.email}</td>
-                    <td>${customer.address}</td>
-                    <td><a class="btn btn-primary" href="/view?action=update&id=${customer.id} ">SUA</a></td>
-                    <td><a class="btn btn-danger" href="/view?action=delete&id=${customer.id} "
-                           data-bs-toggle="modal" data-bs-target="#exampleModal1" onclick="modaldelate(${customer.id})">XOA</a></td>
+                    </div>
+                    <td th:text="${page.id}"></td>
+                    <td th:text="${page.phone}"></td>
+                    <td th:text="${page.email}"></td>
+                    <td th:text="${page.adress}"></td>
+                    <td><a class="btn btn-primary" th:href="@{/updateCustomer/{id}(id=${page.idCustomer})}">SUA</a></td>
+                    <td><a class="btn btn-danger"
+                           data-bs-toggle="modal"
+                           data-bs-target="#exampleModal1" th:attr= "onclick=|modaldelete('${page.idCustomer}')|">XOA</a></td>
                 </tr>
-            </c:forEach>
             </tbody>
         </table>
 
-        <form action="/view" id="deletefrom">
-            <input hidden name="action" value="delete">
-            <input hidden name="idcus" id="takeId">
+        <form action="/deleteCustomer" id="deletefrom">
+            <input hidden name="deleteModal" id="takeId">
         </form>
     </div>
     <div class="col-lg-1"></div>
+
+     ung modal--%>
+     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                 </div>
+                 <div class="modal-body">
+                     Ban chac chan muon xoa ?
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huy</button>
+                     <button type="button" class="btn btn-primary" onclick="submitForm()">Dong Y</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
 </div>
 </div>
 <script src="../../js/bootstrap.min.js"></script>
+<script>
+
+    function modaldelete(idCustomer){
+        document.getElementById("takeId").value=idCustomer;
+    }
+    function submitForm(){
+        document.getElementById("deletefrom").submit();
+    }
+
+</script>
+
+</script>
 </body>
 </html>

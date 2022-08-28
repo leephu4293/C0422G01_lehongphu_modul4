@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="614e8564-a1fb-4884-ac06-3391a0bc9021" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/furama/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/java/com/demo/FuramaApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/java/com/demo/controller/FuramaController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/java/com/demo/repository/ICustomerRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.rtl.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.rtl.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.rtl.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/css/bootstrap.rtl.min.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.bundle.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.bundle.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.bundle.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.bundle.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.esm.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.esm.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.esm.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/bgfu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/bodypic.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/card1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/card2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/card3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/duoivideos.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/duoivieos2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/logocase.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/silde3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/slide1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/slide2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/static/picture/slide4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/templates/customer/createCustomer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/templates/customer/listCustomer.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/templates/employee/createEmployee.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/templates/facility/createFacility.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/templates/facility/listFacility.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/furama/src/test/java/com/demo/FuramaApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_MVC/exercise/Currnecy/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_MVC/exercise/Currnecy/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/build/classes/java/main/web/config/AppConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/build/classes/java/main/web/config/AppConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/build/libs/music-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/build/libs/music-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/music/src/main/java/web/config/AppConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/music/src/main/java/web/config/AppConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/7.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/build/classes/java/main/web/repository/impl/ProductRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/build/classes/java/main/web/repository/impl/ProductRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/build/libs/products-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/build/libs/products-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss5_MVC/exercise/products/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../ss5_MVC/exercise/products/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_MVC/exercise/blog/src/main/java/com/blog/repository/IBlogRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_MVC/exercise/blog/src/main/java/com/blog/repository/IBlogRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_MVC/exercise/product/src/main/java/com/web/controller/ProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_MVC/exercise/product/src/main/java/com/web/controller/ProductController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss7_MVC/exercise/product/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../ss7_MVC/exercise/product/src/main/resources/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/aspect/BookAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/aspect/BookAspect.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/controller/BooksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/controller/BooksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/repository/IBooksRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/repository/IBooksRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/service/IBooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/service/IBooksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/service/impl/BooksService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ss9_MVC/exercise/books/src/main/java/com/books/service/impl/BooksService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../upfile/NgoiSaoCoDon-JackJ97-7611601.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../upfile/PhonicsSong-VA-7610246.mp3" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2Dx4pl7PQGtjqVHxnuD5FufE2mT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="614e8564-a1fb-4884-ac06-3391a0bc9021" name="Changes" comment="" />
+      <created>1661627588643</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1661627588643</updated>
+      <workItem from="1661627590170" duration="105000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
