@@ -1,6 +1,7 @@
 package com.demo.controller;
 
 import com.demo.model.Product;
+import com.demo.service.ICartService;
 import com.demo.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import java.util.Map;
 public class SessionController {
     @Autowired
     private IProductService productService;
+    @Autowired
+    private ICartService cartService;
     @GetMapping("/addSession/{id}")
     public String showCart(@PathVariable int id, @SessionAttribute () Map<Product,Integer> cartShop, Model model){
         Product product = this.productService.findById(id);
@@ -23,6 +26,8 @@ public class SessionController {
        }else {
            cartShop.put(product,count);
        }
+        double total = this.cartService.total(cartShop);
+        model.addAttribute("total",total);
            model.addAttribute("mapProduct",cartShop);
 
         return "listCart";
@@ -40,6 +45,8 @@ public class SessionController {
                          @SessionAttribute Map<Product,Integer> cartShop,Model model){
         Product product = this.productService.findById(idUpdate);
         cartShop.replace(product,update);
+        double total = this.cartService.total(cartShop);
+        model.addAttribute("total",total);
         model.addAttribute("mapProduct",cartShop);
         return "listCart";
     }

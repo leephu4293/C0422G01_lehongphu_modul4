@@ -27,8 +27,10 @@
             <input type="hidden" th:value="${map.idProduct}" name="idUpdate">
         </form>
         <td><a th:href="@{/delete/{id}(id=${map.idProduct})}">delete</a></td>
-
-
+    </tr>
+    <tr>
+        <td>total:</td>
+        <td th:text="${total}"></td>
     </tr>
 </table>
 
