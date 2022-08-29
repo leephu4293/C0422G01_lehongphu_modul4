@@ -19,4 +19,14 @@ public class CartService implements ICartService {
         }
         return total ;
     }
+
+    @Override
+    public void add(Map<Product, Integer> cartShop, Product product) {
+        Integer count = 1;
+        if (cartShop.containsKey(product)) {
+            cartShop.replace(product, cartShop.get(product) + 1);
+        } else {
+            cartShop.put(product, count);
+        }
+    }
 }
