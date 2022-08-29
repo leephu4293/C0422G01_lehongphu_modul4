@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+</head>
+<body>
+<a href="/">shopTable</a>
+
+<table class="table table-hover">
+    <tr>
+        <th>STT</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Numbers</th>
+        <th>Delete</th>
+    </tr>
+    <tr th:each="map, STT : ${mapProduct.keySet()}">
+        <td th:text="${STT.count}"></td>
+        <td th:text="${map.idProduct}"></td>
+        <td th:text="${map.name}"></td>
+        <td th:text="${map.price}"></td>
+        <form action="/update" method="post">
+        <td><input type="number" th:value="${mapProduct.get(map)}" name="update"><button type="submit">update</button></td>
+            <input type="hidden" th:value="${map.idProduct}" name="idUpdate">
+        </form>
+        <td><a th:href="@{/delete/{id}(id=${map.idProduct})}">delete</a></td>
+
+
+    </tr>
+</table>
+
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>
