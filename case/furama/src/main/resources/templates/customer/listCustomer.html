@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <style>
+        table tr{
+            border-bottom: 1px solid #E8E8E8;
+        }
+        table tr:hover{
+            background: #E8E8E8;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav th:replace="~{home :: navbarHome}"></nav>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6">
+            <form class="mt-3"  action="/search">
+            <div class="input-group mb-3">
+                <input type="number" class="form-control" placeholder="search id" name="idSearch"  aria-describedby="button-addon2">
+                <input type="text" class="form-control" placeholder="search name" name="nameSearch" aria-describedby="button-addon3">
+                <button class="btn btn-outline-success" type="submit" >Search</button>
+            </div>
+            </form>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col"><h2 class="text-lg-center"> DANH SACH KHACH HANG</h2></div>
+    </div>
+    <div class="row ">
+        <div class="col">
+            <table style="width:100%" id="testTable" class="mt-3">
+                <tr>
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th> LOAI KHACH</th>
+                    <th>HO TEN</th>
+                    <th>NGAY SINH</th>
+                    <th>GIOI TINH</th>
+                    <th>SO CMND</th>
+                    <th>DIEN THOAI</th>
+                    <th>EMAIL</th>
+                    <th> DIA CHI</th>
+                    <th> SUA</th>
+                    <th> XOA</th>
+                </tr>
+                <tr th:each="page,STT:${pageCustomer}">
+                    <td th:text="${pageCustomer.number*pageCustomer.size + STT.count}"></td>
+                    <td th:text="${page.id}"></td>
+                    <td th:text="${page.typeCustomer.name}"></td>
+                    <td th:text="${page.name}"></td>
+                    <td th:text="${page.date}"></td>
+                    <div th:if="${page.gender == true}">
+                        <td>Nam</td>
+                    </div>
+                    <div th:if="${not page.gender == true}">
+                        <td>Nu</td>
+                    </div>
+                    <td th:text="${page.id}"></td>
+                    <td th:text="${page.phone}"></td>
+                    <td th:text="${page.email}"></td>
+                    <td th:text="${page.adress}"></td>
+                    <td><a class="btn btn-primary" th:href="@{/updateCustomer/{id}(id=${page.idCustomer})}">SUA</a></td>
+                    <td><a class="btn btn-danger"
+                           data-bs-toggle="modal"
+                           data-bs-target="#exampleModal1" th:attr="onclick=|modaldelete('${page.idCustomer}')|">XOA</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <nav aria-label="..." class="mt-3">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="btn-danger btn" th:if="${pageCustomer.hasPrevious()}"
+                           th:href="@{/customer/(page=${pageCustomer.number - 1},idSearch=${idPage},nameSearch=${namePage})}">Previous</a>
+                    </li>
+                    <a class="page-item btn-danger btn" th:text="${pageCustomer.number +1}"></a><a
+                        class="page-item btn-danger btn">/</a> <a class="page-item btn-danger btn"
+                                                                  th:text="${pageCustomer.totalPages}"></a>
+                    <li class="page-item">
+                        <a class=" btn-danger btn" th:if="${pageCustomer.hasNext()}"
+                           th:href="@{/customer/(page=${pageCustomer.number + 1},idSearch=${idPage},nameSearch=${namePage})}">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+        <form action="/deleteCustomer" id="deletefrom">
+            <input hidden name="deleteModal" id="takeId">
+        </form>
+    </div>
+    <div class="col-lg-1"></div>
+    <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Ban chac chan muon xoa ?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Huy</button>
+                    <button type="button" class="btn btn-primary" onclick="submitForm()">Dong Y</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../../js/bootstrap.min.js"></script>
+
+</body>
+<script>
+
+    function modaldelete(idCustomer) {
+        document.getElementById("takeId").value = idCustomer;
+    }
+
+    function submitForm() {
+        document.getElementById("deletefrom").submit();
+    }
+
+</script>
+</html>

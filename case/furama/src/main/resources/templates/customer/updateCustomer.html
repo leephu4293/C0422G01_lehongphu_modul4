@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <style>
+        .css{
+            margin-left: 80px;
+            border-radius: 10px;
+        }
+        body{
+            background: #cff4fc;
+        }
+    </style>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<body>
+
+    <nav th:replace="~{home :: navbarHome}"></nav>
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6 "  style="margin-top: 100px" >
+            <form class="text-dark bg-light justify-content-center align-items-lg-center" style="box-shadow: 10px 10px black; border-radius: 10px; border: 10px"
+                  action="/updateCustomer" method="post" th:object="${customerUpdate}">
+                <h5 class="text-lg-center"> THEM MOI KHACH HANG </h5>
+                <div  class="css">
+                    <input hidden class="form-control rounded-3 w-75"  name="name" placeholder="Ho Ten" th:field="*{idCustomer}" >
+                    <label>Ho Ten </label>
+                    <input type="text" class="form-control rounded-3 w-75"  name="name" placeholder="Ho Ten" th:field="*{name}" >
+
+                </div>
+                <div  class="css">
+
+                    <label>Ngay Sinh </label>
+                    <input type="date" class="form-control rounded-3 w-75" name="birth" placeholder="Ngay Sinh" th:field="*{date}">
+
+                </div>
+
+                <div  class="css">
+                    <label>Gioi Tinh</label>
+                    <select name="gender" th:field="*{gender}">
+                        <option value="true">Nam</option>
+                        <option value="false">Nu</option>
+                    </select>
+                </div>
+
+                <div  class="css">
+                    <label>CMND</label>
+                    <input type="text" class="form-control rounded-3 w-75" name="iden" placeholder=" CMND" th:field="*{id}" >
+
+                </div>
+
+                <div  class="css" >
+                    <label>So Dien Thoai</label>
+                    <input type="text" class="form-control rounded-3 w-75" name="phone" placeholder="So Dien Thoai" th:field="*{phone}">
+                </div>
+                <div  class="css" >
+                    <label>Email</label>
+                    <input type="text" class="form-control rounded-3 w-75" name="email" th:field="*{email}" >
+
+                </div>
+
+                <div  class="css">
+                    <label> Loai khach </label>
+
+                    <select style="margin-top: 3px; border-radius: 10px" name="type" th:field="*{typeCustomer.id}">
+
+                        <option th:each="list : ${listType}"
+                                th:value="${list.id}"
+                                th:text="${list.name}">
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div  class="css" id="s2" >
+                    <label> Dia Chi </label>
+                    <input type="text" class="form-control rounded-3 w-75" name="address" placeholder="Dia Chi" th:field="*{adress}">
+                </div>
+
+                <p></p>
+                <button type="submit" class="btn btn-primary justify-content-center css mb-2">Submit</button>
+
+            </form>
+        </div>
+
+        <div class="col-lg-3 "></div>
+    </div>
+
+<script src="../../js/bootstrap.min.js"></script>
+</body>
+</html>
