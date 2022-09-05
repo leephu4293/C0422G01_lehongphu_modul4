@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.6.1.min.js"></script>
+</head>
+<body>
+
+<form>
+    <input placeholder="searchByName" id = "searchByName"  >
+    <button type="button" id="submitSearch">submit</button>
+</form>
+
+    <table class="table table-light">
+        <thead>
+        <tr>
+            <th>STT</th>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>TYPE</th>
+            <th>NOTE</th>
+        </tr>
+        </thead>
+       <tbody id="listBlog">
+
+       </tbody>
+    </table>
+      <a id="loadMore" >Load More</a>
+
+</body>
+<script>
+    let size =0;
+   function pageBlog(){
+       size+=2;
+      let name = $("#searchByName").val();
+       $.ajax({
+           type: "GET",
+           url: "http://localhost:8080/restController/listBlog?size=" + (size) +"&name=" +name,
+           success: function(blogPage){
+               let blogList = blogPage.content;
+               console.log(blogList);
+               let htmlStr = "";
+               for (let i =0; i< blogList.length;i++ ){
+                   htmlStr += `<tr>
+                    <td>${i+1}</td>
+                    <td>${blogList[i].idBlog}</td>
+                    <td>${blogList[i].name}</td>
+                    <td>${blogList[i].category.name}</td>
+                    <td>${blogList[i].note}</td>
+                    </tr>`
+               }
+
+               $("#listBlog").html(htmlStr)
+               console.log(htmlStr)
+           },
+           error: function(resultError) {
+
+           }
+       });
+   }
+   pageBlog();
+   $("#loadMore").click(function () {
+       pageBlog();
+
+   })
+    $("#submitSearch").click(function () {
+        size=0;
+        pageBlog();
+    })
+    $("#searchByName").change(function () {
+       size=0;
+       pageBlog();
+    })
+
+
+
+</script>
+</html>

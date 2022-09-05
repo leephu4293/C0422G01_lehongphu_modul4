@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="static/js/jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+
+</head>
+<body>
+<div class="row" id="list">
+    <div class="row">
+        <div class="col-lg-2">
+            <button type="button" onclick="showCreate()" id="btnCreate"> Create</button>
+        </div>
+    </div>
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+        <h3 style="text-align: center">PHONE LIST</h3>
+        <table class="table table-hover">
+            <tr>
+                <th>STT</th>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>MODEL</th>
+                <th>PRICE</th>
+                <th>Delete</th>
+                <th>Update</th>
+            </tr>
+            <tbody id="bodyTable">
+
+
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+<div class="row " id=create style="display: none">
+
+    <div class="col-lg-8">
+        <form>
+            <input placeholder="name" type="text" id="namePhone">
+            <input placeholder="model" type="text" id="modelPhone">
+            <input placeholder="price" type="number" id="pricePhone">
+            <button type="button" id="submit">Submit</button>
+        </form>
+    </div>
+    <div class="col-lg-2"></div>
+</div>
+<div class="row" id="update" style="display: none">
+    <div class="col-lg-2"></div>
+    <div class="col-lg-8">
+        <input placeholder="id" type="text" readonly id="idPhoneUp">
+        <input placeholder="name" type="text" id="namePhoneUp">
+        <input placeholder="model" type="text" id="modelPhoneUp">
+        <input placeholder="price" type="number" id="pricePhoneUp">
+        <button type="button" id="submitUpdate">update</button>
+    </div>
+
+    <div class="col-lg-2"></div>
+
+</div>
+
+
+<script src="static/js/bootstrap.min.js"></script>
+</body>
+
+<script>
+    showList();
+
+    function showList() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/list",
+            success: function (phonePage) {
+                let phoneList = phonePage.content;
+                console.log(phoneList);
+                let htmlStr = "";
+                for (let i = 0; i < phoneList.length; i++) {
+                    htmlStr += `<tr>
+                    <td>${i + 1}</td>
+                    <td>${phoneList[i].id}</td>
+                    <td>${phoneList[i].name}</td>
+                    <td>${phoneList[i].model}</td>
+                    <td>${phoneList[i].price}</td>
+                    <td><button type="button" class=" btn
+                    btn-outline-danger"
+                    onclick="deletePhone(${phoneList[i].id})">Delete</button></td>
+                     <td><button type="button" class=" btn
+                    btn-outline-danger"
+                    onclick="updatePhone(${phoneList[i].id})">Update</button></td>
+                    </tr>`
+                }
+
+                $("#bodyTable").html(htmlStr)
+                console.log(htmlStr)
+            },
+            error: function (resultError) {
+
+            }
+        });
+
+    }
+
+
+    $("#submit").click(function () {
+
+        let name = $("#namePhone").val();
+        let model = $("#modelPhone").val();
+        let price = $("#pricePhone").val();
+        let phone = {
+            name: name,
+            model: model,
+            price: price
+        };
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST", //GET, DELETE, PUT...
+            url: "http://localhost:8080/create",
+            data: JSON.stringify(phone),
+            success: function (resultSuccess) {
+                alert('register successfully!')
+                $("#list").show();
+                showList();
+                $("#create").hide();
+
+            },
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+
+    })
+
+    function showCreate() {
+        $("#namePhone").val("")
+        $("#modelPhone").val("")
+        $("#pricePhone").val(0)
+        $("#list").hide();
+        $("#create").show();
+    }
+
+
+    function deletePhone(id) {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/delete?id=" + id,
+            success: function () {
+                showList();
+            },
+            error: function (resultError) {
+
+            }
+        });
+    }
+
+
+    function updatePhone(id) {
+        $("#list").hide();
+        $("#update").show();
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/update?idUpdate=" + id,
+            success: function (phoneObj) {
+                $("#idPhoneUp").val(phoneObj.id);
+
+                $("#namePhoneUp").val(phoneObj.name);
+
+                $("#modelPhoneUp").val(phoneObj.model);
+
+                $("#pricePhoneUp").val(phoneObj.price);
+            },
+            error: function (resultError) {
+
+            }
+        });
+    }
+
+    $("#submitUpdate").click(function () {
+        let id = $("#idPhoneUp").val();
+        let name = $("#namePhoneUp").val();
+        let model = $("#modelPhoneUp").val();
+        let price = $("#pricePhoneUp").val();
+        let phone = {
+            id: id,
+            name: name,
+            model: model,
+            price: price
+        };
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "PATCH",
+            url: "http://localhost:8080/update",
+            data: JSON.stringify(phone),
+            success: function (resultSuccess) {
+                alert('register successfully!')
+                $("#list").show();
+                showList();
+                $("#update").hide();
+
+            },
+            error: function (resultError) {
+                alert('error');
+            }
+        });
+
+    })
+
+</script>
+</html>
