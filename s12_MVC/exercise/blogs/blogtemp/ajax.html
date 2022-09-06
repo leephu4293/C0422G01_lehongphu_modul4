@@ -42,21 +42,21 @@
 </body>
 
 <script>
-    let size = 0;
+    let pageCru = 0;
 
     function pageBlog() {
-        size += 2;
+
         let name = $("#searchByName").val();
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/restController/listBlog?size=" + (size) + "&name=" + name,
+            url: "http://localhost:8080/restController/listBlog?page=" + pageCru++ + "&name=" + name,
             success: function (blogPage) {
                 let blogList = blogPage.content;
                 console.log(blogList);
                 let htmlStr = "";
                 for (let i = 0; i < blogList.length; i++) {
                     htmlStr += `<tr>
-                    <td>${i + 1}</td>
+                    <td>${blogPage.number* blogPage.size + (i+1)}</td>
                     <td>${blogList[i].idBlog}</td>
                     <td>${blogList[i].name}</td>
                     <td>${blogList[i].category.name}</td>
@@ -64,7 +64,7 @@
                     </tr>`
                 }
 
-                $("#listBlog").html(htmlStr)
+                $("#listBlog").append(htmlStr)
                 console.log(htmlStr)
             },
             error: function (resultError) {

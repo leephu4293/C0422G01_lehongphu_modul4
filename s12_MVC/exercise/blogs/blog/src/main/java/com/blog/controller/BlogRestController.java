@@ -37,7 +37,7 @@ public class BlogRestController {
     }
 
     @GetMapping("/listBlog")
-    public ResponseEntity<Page<Blog>> getBlog(@PageableDefault Pageable pageable,
+    public ResponseEntity<Page<Blog>> getBlog(@PageableDefault(value = 2) Pageable pageable,
                                               @RequestParam(defaultValue = "",required = false) String name) {
         Page<Blog> page = this.blogService.findAllByNameContaining(name,pageable);
         if (!page.hasContent()) {
