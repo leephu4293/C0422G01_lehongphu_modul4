@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>ID :<span th:text="${details.idBlog}"></span></p>
+<p>NAME: <span th:text="${details.name}"></span></p>
+<p>TYPE: <span th:text="${details.category.name}"></span></p>
+<p>DETAILS:<span th:text="${details.note}"></span></p>
+
+</body>
+</html>

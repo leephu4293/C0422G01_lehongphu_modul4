@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/update" method="post" th:object="${blogUpdate}">
+    <input readonly th:field="*{idBlog}">
+    <input th:field="*{name}">
+    <select th:field="*{category}">
+        <option th:each="categorys : ${category}"
+        th:value="${categorys.idCategory}"
+        th:text="${categorys.name}"></option>
+    </select>
+    <input th:field="*{note}">
+    <button type="submit">submit</button>
+</form>
+</body>
+</html>
