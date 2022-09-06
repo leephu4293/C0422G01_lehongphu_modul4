@@ -4,75 +4,88 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="jquery-3.6.1.min.js"></script>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
 </head>
 <body>
 
 <form>
-    <input placeholder="searchByName" id = "searchByName"  >
+    <input placeholder="searchByName" id="searchByName">
     <button type="button" id="submitSearch">submit</button>
 </form>
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <table class="table table-light">
+                <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>TYPE</th>
+                    <th>NOTE</th>
+                </tr>
+                </thead>
+                <tbody id="listBlog">
 
-    <table class="table table-light">
-        <thead>
-        <tr>
-            <th>STT</th>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>TYPE</th>
-            <th>NOTE</th>
-        </tr>
-        </thead>
-       <tbody id="listBlog">
+                </tbody>
+            </table>
+            <a id="loadMore"
+               style="text-decoration: none" class="btn-outline-danger d-flex justify-content-center">Load More</a>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
 
-       </tbody>
-    </table>
-      <a id="loadMore" >Load More</a>
 
+
+
+<script src="static/js/bootstrap.min.js"></script>
 </body>
+
 <script>
-    let size =0;
-   function pageBlog(){
-       size+=2;
-      let name = $("#searchByName").val();
-       $.ajax({
-           type: "GET",
-           url: "http://localhost:8080/restController/listBlog?size=" + (size) +"&name=" +name,
-           success: function(blogPage){
-               let blogList = blogPage.content;
-               console.log(blogList);
-               let htmlStr = "";
-               for (let i =0; i< blogList.length;i++ ){
-                   htmlStr += `<tr>
-                    <td>${i+1}</td>
+    let size = 0;
+
+    function pageBlog() {
+        size += 2;
+        let name = $("#searchByName").val();
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/restController/listBlog?size=" + (size) + "&name=" + name,
+            success: function (blogPage) {
+                let blogList = blogPage.content;
+                console.log(blogList);
+                let htmlStr = "";
+                for (let i = 0; i < blogList.length; i++) {
+                    htmlStr += `<tr>
+                    <td>${i + 1}</td>
                     <td>${blogList[i].idBlog}</td>
                     <td>${blogList[i].name}</td>
                     <td>${blogList[i].category.name}</td>
                     <td>${blogList[i].note}</td>
                     </tr>`
-               }
+                }
 
-               $("#listBlog").html(htmlStr)
-               console.log(htmlStr)
-           },
-           error: function(resultError) {
+                $("#listBlog").html(htmlStr)
+                console.log(htmlStr)
+            },
+            error: function (resultError) {
 
-           }
-       });
-   }
-   pageBlog();
-   $("#loadMore").click(function () {
-       pageBlog();
+            }
+        });
+    }
 
-   })
+    pageBlog();
+    $("#loadMore").click(function () {
+        pageBlog();
+
+    })
     $("#submitSearch").click(function () {
-        size=0;
+        size = 0;
         pageBlog();
     })
     $("#searchByName").change(function () {
-       size=0;
-       pageBlog();
+        size = 0;
+        pageBlog();
     })
-
 
 
 </script>
