@@ -56,7 +56,7 @@ public class MainController {
         String userInfo = WebUtils.toString(loginedUser);
         model.addAttribute("userInfo", userInfo);
 
-        return "userInfoPage";
+        return "redirect:/home";
     }
 
     @RequestMapping(value = "/403", method = RequestMethod.GET)

@@ -23,7 +23,7 @@ public class BlogController {
     @Autowired
     private ICategoryService categoryService;
 
-    @GetMapping({"/", "/search"})
+    @GetMapping({"/home", "/search"})
     public String divine(@PageableDefault(value = 2, sort = "name") Pageable pageable, Model model,
                          @RequestParam Optional<String> findBlog,
                          @RequestParam Optional<Integer> searchCategory) {
@@ -66,10 +66,10 @@ public class BlogController {
         return "redirect:/";
     }
 
-    @PostMapping("/delete")
+    @GetMapping("/delete")
     public String delete(@RequestParam int take) {
         this.blogService.deleteById(take);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
     @GetMapping("/detail/{id}")
