@@ -23,18 +23,20 @@
         <div class="col-lg-3"></div>
         <div class="col-lg-6 "  style="margin-top: 100px" >
             <form class="text-dark bg-light justify-content-center align-items-lg-center" style="box-shadow: 10px 10px black; border-radius: 10px; border: 10px"
-                  action="/updateCustomer" method="post" th:object="${customerUpdate}">
+                  action="/updateCustomer" method="post" th:object="${customerDto}">
                 <h5 class="text-lg-center"> THEM MOI KHACH HANG </h5>
                 <div  class="css">
                     <input hidden class="form-control rounded-3 w-75"  name="name" placeholder="Ho Ten" th:field="*{idCustomer}" >
                     <label>Name </label>
                     <input type="text" class="form-control rounded-3 w-75"  name="name" placeholder="Ho Ten" th:field="*{name}" >
+                    <div class="text-danger mt-2" th:errors="*{name}"></div>
 
                 </div>
                 <div  class="css">
 
                     <label>DayOfBirth </label>
                     <input type="date" class="form-control rounded-3 w-75" name="birth" placeholder="DayOfBirth" th:field="*{date}">
+                    <div class="text-danger mt-2" th:errors="*{date}"></div>
 
                 </div>
 
@@ -49,16 +51,19 @@
                 <div  class="css">
                     <label>ID Card</label>
                     <input type="text" class="form-control rounded-3 w-75" name="iden" placeholder=" ID Card" th:field="*{id}" >
+                    <div class="text-danger mt-2" th:errors="*{id}"></div>
 
                 </div>
 
                 <div  class="css" >
                     <label>Phone</label>
                     <input type="text" class="form-control rounded-3 w-75" name="phone" placeholder="Phone" th:field="*{phone}">
+                    <div class="text-danger mt-2" th:errors="*{phone}"></div>
                 </div>
                 <div  class="css" >
                     <label>Email</label>
                     <input type="text" class="form-control rounded-3 w-75" placeholder="email" th:field="*{email}" >
+                    <div class="text-danger mt-2" th:errors="*{email}" ></div>
 
                 </div>
 

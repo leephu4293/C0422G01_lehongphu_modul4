@@ -1,19 +1,23 @@
 package com.demo.controller;
 
+import com.demo.Dto.FacilityDto;
 import com.demo.model.facility.Facility;
 import com.demo.model.facility.RentType;
 import com.demo.model.facility.TypeService;
 import com.demo.service.facility.IFacilityService;
 import com.demo.service.facility.IRentService;
 import com.demo.service.facility.ITypeServiceService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -47,13 +51,23 @@ public class FacilityController {
         List<RentType> rentTypeList = this.rentService.findAll();
         List<TypeService> typeServiceList = this.iTypeServiceService.findAll();
         model.addAttribute("typeList", typeServiceList);
-        model.addAttribute("createFacility", new Facility());
+        model.addAttribute("facilityDto", new FacilityDto());
         model.addAttribute("rentList", rentTypeList);
         return "/facility/createFacility";
     }
 
     @PostMapping("/addFromFacility")
-    public String createFacility(@ModelAttribute Facility facility) {
+    public String createFacility(@ModelAttribute @Valid FacilityDto facilityDto,
+                                 BindingResult bindingResult,Model model) {
+        Facility facility = new Facility();
+        if (bindingResult.hasErrors()){
+            List<TypeService> typeServiceList = this.iTypeServiceService.findAll();
+            List<RentType> rentTypeList = this.rentService.findAll();
+            model.addAttribute("typeList", typeServiceList);
+            model.addAttribute("rentList", rentTypeList);
+            return "/facility/createFacility";
+        }
+        BeanUtils.copyProperties(facilityDto,facility);
         this.facilityService.save(facility);
         return "redirect:/facilityList";
     }
