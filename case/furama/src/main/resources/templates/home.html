@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css">
 </head>
 <body>
@@ -39,7 +39,7 @@
         <li class="nav-item dropdown " style="list-style:none ">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown1" role="button"
                data-bs-toggle="dropdown" aria-expanded="false">
-                Khach Hang
+                Customer
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
                 <li><a class="dropdown-item" href="/customer">List</a></li>
@@ -50,7 +50,7 @@
         <li class="nav-item dropdown " style="list-style:none ">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown2" role="button"
                data-bs-toggle="dropdown" aria-expanded="false">
-                Nhan Vien
+                Employee
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown2">
                 <li><a class="dropdown-item" href="#">List</a></li>
@@ -61,7 +61,7 @@
         <li class="nav-item dropdown " style="list-style:none ">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown3" role="button"
                data-bs-toggle="dropdown" aria-expanded="false">
-                Dich vu
+                Service
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
                 <li><a class="dropdown-item" href="/facilityList">List</a></li>
@@ -72,15 +72,15 @@
         <li class="nav-item dropdown " style="list-style:none ">
             <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown4" role="button"
                data-bs-toggle="dropdown" aria-expanded="false">
-                Hop Dong
+                Contract
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown4">
-                <li><a class="dropdown-item" href="#">Villa</a></li>
-                <li><a class="dropdown-item" href="#">House</a></li>
+                <li><a class="dropdown-item" href="/contract">List</a></li>
+                <li><a class="dropdown-item" href="#">Add</a></li>
                 <li>
                     <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Room</a></li>
+                <li><a class="dropdown-item" href="#">update</a></li>
             </ul>
         </li>
 
@@ -255,33 +255,115 @@
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
-                    <svg class="bi" width="30" height="24">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-                <span class="text-muted  fw-bold">© 2021 Company, Inc</span>
+    <!-- Footer -->
+<footer class="text-center text-lg-start text-black text-muted mt-4 " th:fragment="footer" style="background:  #addccf">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom bg-light">
+            <!-- Left -->
+            <div class="me-5 d-none d-lg-block">
+                <h5> Get connected with us on social networks:</h5>
             </div>
 
-            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-                <li class="ms-3"><a class="text-muted" href="#">
-                    <svg class="bi" width="24" height="24"></svg>
-                </a></li>
-                <li class="ms-3"><a class="text-muted" href="#">
-                    <svg class="bi" width="24" height="24"></svg>
-                </a></li>
-                <li class="ms-3"><a class="text-muted" href="#">
-                    <svg class="bi" width="24" height="24"></svg>
-                </a></li>
-            </ul>
-        </footer>
-    </div>
+            <div>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-facebook-f">
+                        <img style="width: 32px;height: 32px;float: left"
+                             src="https://furamavietnam.com/wp-content/uploads/2019/06/incon-Facbook-1.png" alt="" width="32" height="32">
+                    </i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-twitter">
+                        <img style="width: 40px;height: 32px;float:
+                        left" src="https://furamavietnam.com/wp-content/uploads/2019/06/social-ins.png" alt="" width="40" height="32">
+                    </i>
+                </a>
+                <a href="" class="me-4 text-reset">
+                    <i class="fab fa-google">
+                        <img style="width: 40px;height: 32px;float:
+                        left" src="https://furamavietnam.com/wp-content/uploads/2021/10/social-youtube.png" alt="" width="40" height="32">
+                    </i>
+                </a>
+            </div>
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
 
-</div>
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>Local Places
+                        </h6>
+                        <p>
+                            1.	The former imperial city of HUE
+                        </p>
+                        <p>
+                            2.	The ancient Hoi An
+                        </p>
+                        <p>
+                            3.	Champa civilization, My Son
+                        </p>
+                        <p>
+                            4.	Phong Nha Caves
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Useful links
+                        </h6>
+                        <p>
+                            <a href="#!" class="text-reset">News</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Rack Rate</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Lifestyle Blog</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset">Work with us</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Local Places</h6>
+                        <p class="justify-content-lg-center-center"><i class="fas fa-home me-3 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                                <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                            </svg>
+                        </i> 103 - 105 Vo Nguyen Giap Street, Khue My Ward, Ngu Hanh Son District, Danang City, Vietnam</p>
+                        <p><i class="fas fa-phone me-3"></i> Tel.: 84-236-3847 333/888 </p>
+                        <p><i class="fas fa-print me-3"></i> Fax: 84-236-3847 666</p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+
+        <!-- Copyright -->
+        <div class="text-center p-4">
+            © 2021 Copyright:
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">Furama Resort Danang</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
 
 <script src="../js/bootstrap.min.js"></script>
 </body>

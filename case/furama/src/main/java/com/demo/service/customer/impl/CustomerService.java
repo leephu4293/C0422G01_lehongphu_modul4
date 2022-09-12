@@ -1,7 +1,7 @@
 package com.demo.service.customer.impl;
 
 import com.demo.model.customer.Customer;
-import com.demo.repository.ICustomerRepository;
+import com.demo.repository.customer.ICustomerRepository;
 import com.demo.service.customer.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

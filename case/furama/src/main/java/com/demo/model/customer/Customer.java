@@ -1,9 +1,11 @@
 package com.demo.model.customer;
+import com.demo.model.Contract;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -42,5 +44,9 @@ public class Customer {
     @ManyToOne
     @JoinColumn(name = "ma_loai_khach", referencedColumnName = "ma_loai_khach")
     private TypeCustomer typeCustomer;
+
+    @OneToMany(mappedBy = "customer")
+    private List<Contract> contracts;
+
 
 }

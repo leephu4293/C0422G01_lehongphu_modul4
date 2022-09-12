@@ -1,7 +1,7 @@
 package com.demo.service.facility.impl;
 
 import com.demo.model.facility.RentType;
-import com.demo.repository.IRentTypeRepository;
+import com.demo.repository.Facilities.IRentTypeRepository;
 import com.demo.service.facility.IRentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

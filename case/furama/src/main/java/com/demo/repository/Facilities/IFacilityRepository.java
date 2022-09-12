@@ -1,4 +1,4 @@
-package com.demo.repository;
+package com.demo.repository.Facilities;
 
 import com.demo.model.facility.Facility;
 import org.springframework.data.domain.Page;

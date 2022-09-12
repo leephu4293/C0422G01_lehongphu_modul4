@@ -1,7 +1,7 @@
 package com.demo.service.facility.impl;
 
 import com.demo.model.facility.Facility;
-import com.demo.repository.IFacilityRepository;
+import com.demo.repository.Facilities.IFacilityRepository;
 import com.demo.service.facility.IFacilityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

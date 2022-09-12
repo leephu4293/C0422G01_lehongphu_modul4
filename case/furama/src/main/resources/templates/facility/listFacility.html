@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>List Service</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
                          <input type="text" class="form-control d-flex " placeholder="search name" name="nameSearch" aria-describedby="button-addon3">
                      </div>
                      <div class="col-lg-3">
-                         <button class="btn btn-outline-success d-flex " type="submit" >Search</button>
+                         <button class="btn btn-group-vertical d-flex " type="submit" >Search</button>
                      </div>
                  </div>
             </form>
@@ -41,26 +41,24 @@
             <thead>
             <tr>
                 <th scope="col">STT</th>
-                <th scope="col">MA DV</th>
-                <th scope="col">TEN DICH VU</th>
-                <th scope="col">DIEN TICH SU DUNG</th>
-                <th scope="col">CHI PHI THUE</th>
-                <th scope="col">SO NGUOI TOI DA</th>
-                <th scope="col"> MA KIEU THUE</th>
-                <th scope="col"> MA LOAI DICH VU</th>
-                <th scope="col"> TIEU CHUAN PHONG</th>
-                <th scope="col"> TIEN NGHI KHAC</th>
-                <th scope="col"> DIEN TICH HO BOI</th>
-                <th scope="col"> SO TANG</th>
-                <th scope="col"> DICH VU DI KEM</th>
-                <th scope="col"> SUA</th>
-                <th scope="col"> XOA</th>
+                <th scope="col">Name Service</th>
+                <th scope="col">Use Area</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Max People</th>
+                <th scope="col"> Rent Code</th>
+                <th scope="col"> Facility Code</th>
+                <th scope="col"> Room Standard</th>
+                <th scope="col"> Other Facilities</th>
+                <th scope="col"> Pool Area</th>
+                <th scope="col"> Floods</th>
+                <th scope="col"> Free Service</th>
+                <th scope="col"> Update</th>
+                <th scope="col"> Delete</th>
             </tr>
             </thead>
             <tbody>
                 <tr th:each="page,STT: ${pageFac}">
                     <td th:text="${STT.count}"></td>
-                    <td th:text="${page.idFacility}"></td>
                     <td th:text="${page.name}"></td>
                     <td th:text="${page.area}"></td>
                     <td th:text="${page.cost}"></td>
@@ -72,11 +70,11 @@
                     <td th:text="${page.poolArea}"></td>
                     <td th:text="${page.flood}"></td>
                     <td th:text="${page.free}"></td>
-                    <td><a class="btn btn-primary" th:href="@{/updateFacility/{id}(id=${page.idFacility})}">SUA</a>
+                    <td><a class="btn btn-primary" th:href="@{/updateFacility/{id}(id=${page.idFacility})}">Update</a>
                     </td>
                     <td><a class="btn btn-danger" data-bs-toggle="modal"
                            data-bs-target="#exampleModal"
-                          th:attr= "onclick=|deleteConfim('${page.idFacility}')|">XOA</a></td>
+                          th:attr= "onclick=|deleteConfim('${page.idFacility}')|">Delete</a></td>
                 </tr>
 
             </tbody>
@@ -114,7 +112,7 @@
 
 </div>
 
-
+<footer th:replace="~{home::footer}" class="mt-6"></footer>
 
 
 

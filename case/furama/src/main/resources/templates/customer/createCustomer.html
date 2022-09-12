@@ -2,8 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <title>Title</title>
+    <title>Create Customer</title>
+
     <style >
         .css{
             margin-left: 80px;
@@ -19,24 +19,25 @@
 
  <div class="row container-fluid">
     <div class="col-lg-3"></div>
-    <div class="col-lg-6 "  style="margin-top: 100px" >
+    <div class="col-lg-6 mb-4 mt-5"  style="margin-top: 100px" >
+        <h5 th:if="${msg != null}" th:text="${msg}" class="text-danger"></h5>
         <form class="text-dark bg-light justify-content-center align-items-lg-center bg-secondary" style="box-shadow: 10px 10px black; border-radius: 10px; border: 10px"
               action="/addCustomer" method="post" th:object="${create}">
-            <h5 class="text-lg-center"> THEM MOI KHACH HANG </h5>
+            <h5 class="text-lg-center"> ADD NEW CUSTOMER </h5>
             <div  class="css">
-                <label>Ho Ten </label>
-                <input type="text" class="form-control rounded-3 w-75"  name="name" placeholder="Ho Ten" th:field="*{name}" >
+                <label>Name </label>
+                <input type="text" class="form-control rounded-3 w-75"  name="name" placeholder="Name" th:field="*{name}" >
 
             </div>
             <div  class="css">
 
-                <label>Ngay Sinh </label>
-                <input type="date" class="form-control rounded-3 w-75" name="birth" placeholder="Ngay Sinh" th:field="*{date}">
+                <label>DayOfBirth </label>
+                <input type="date" class="form-control rounded-3 w-75" name="birth" placeholder="DayOfBirth" th:field="*{date}">
 
             </div>
 
             <div  class="css mt-2">
-                <label>Gioi Tinh</label>
+                <label>Gender</label>
                 <select name="gender" th:field="*{gender}" class="form-control rounded-3 w-75">
                     <option value="true">Nam</option>
                     <option value="false">Nu</option>
@@ -44,23 +45,23 @@
             </div>
 
             <div  class="css">
-                <label>CMND</label>
-                <input type="text" class="form-control rounded-3 w-75" name="iden" placeholder=" CMND" th:field="*{id}" >
+                <label>ID Card</label>
+                <input type="text" class="form-control rounded-3 w-75" name="iden" placeholder=" ID Card " th:field="*{id}" >
 
             </div>
 
             <div  class="css" >
-                <label>So Dien Thoai</label>
-                <input type="text" class="form-control rounded-3 w-75" name="phone" placeholder="So Dien Thoai" th:field="*{phone}">
+                <label>Phone</label>
+                <input type="text" class="form-control rounded-3 w-75" name="phone" placeholder="Phone" th:field="*{phone}">
             </div>
             <div  class="css" >
                 <label>Email</label>
-                <input type="text" class="form-control rounded-3 w-75" name="email" th:field="*{email}" >
+                <input type="text" class="form-control rounded-3 w-75" placeholder="Email" th:field="*{email}" >
 
             </div>
 
             <div  class="css mt-2">
-                <label> Loai khach </label>
+                <label> Member </label>
 
                 <select style="margin-top: 3px; border-radius: 10px" name="type" th:field="*{typeCustomer.id}" class="form-control rounded-3 w-75">
 
@@ -75,8 +76,8 @@
             </div>
 
             <div  class="css" id="s2" >
-                <label> Dia Chi </label>
-                <input type="text" class="form-control rounded-3 w-75" name="address" placeholder="Dia Chi" th:field="*{adress}">
+                <label> Address </label>
+                <input type="text" class="form-control rounded-3 w-75" name="address" placeholder="address" th:field="*{adress}">
             </div>
 
             <p></p>
@@ -88,6 +89,9 @@
     <div class="col-lg-3 "></div>
 </div>
 
+
+ <footer th:replace="~{home::footer}" class="mt-6"></footer>
 <script src="../../js/bootstrap.min.js"></script>
 </body>
+
 </html>

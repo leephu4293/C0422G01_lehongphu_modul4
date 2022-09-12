@@ -2,21 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Create Service</title>
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <title>Title</title>
+
     <style>
         .css{
             margin-left: 80px;
             border-radius: 10px;
         }
-
+        body{
+            background:#AFEEEE ;
+        }
     </style>
 </head>
-<body>
+<body >
 <nav th:replace="~{home :: navbarHome}"></nav>
 
-<h1 class="text-lg-center"> THEM DICH VU  </h1>
+<h1 class="text-lg-center"> NEW SERVICE  </h1>
 
 <div class="row container-fluid">
     <div class="col-lg-3"></div>
@@ -26,9 +28,9 @@
 
             <div class="css">
 
-                <label>  chon loai muon them </label>
-                <select  onchange="addNew(this.value)" name ="typecodeF" class="form-control rounded-3 w-75" th:field="*{typeService}">
-                    <option value="0">Chon</option>
+                <label>  Service </label>
+                <select  onchange="addNew(this.value)"  class="form-control rounded-3 w-75" th:field="*{typeService}">
+                    <option value="0">Service</option>
                     <option th:each="list : ${typeList}"
                     th:value="${list.id}"
                     th:text="${list.name}">Room</option>
@@ -37,31 +39,31 @@
             </div>
 
             <div  class="css">
-                <label>Ten Dich Vu</label>
-                <input type="text" class="form-control rounded-3 w-75" name="name" placeholder="Ten Dich Vu" th:field="*{name}" >
+                <label>Name Service</label>
+                <input type="text" class="form-control rounded-3 w-75" name="name" placeholder="Name Service" th:field="*{name}" >
 
             </div>
 
             <div  class="css">
-                <label>Dien Tich Su Dung</label>
-                <input type="number" class="form-control rounded-3 w-75"  name="area" placeholder="Dien Tich Su Dung" th:field="*{area}">
+                <label>Use Area</label>
+                <input type="number" class="form-control rounded-3 w-75"  name="area" placeholder="Use Area" th:field="*{area}">
 
             </div>
 
             <div  class="css">
-                <label>Chi Phi</label>
-                <input type="number" class="form-control rounded-3 w-75" name="cost"  placeholder="Chi Phi"  th:field="*{cost}" >
+                <label>Cost</label>
+                <input type="number" class="form-control rounded-3 w-75" name="cost"  placeholder="Cost"  th:field="*{cost}" >
             </div>
 
             <div  class="css">
-                <label>So Nguoi Toi Da</label>
-                <input type="number"  value=0 class="form-control rounded-3 w-75"  name="people" placeholder=" So Nguoi Toi Da" th:field="*{people}" >
+                <label>Max People</label>
+                <input type="number"  value=0 class="form-control rounded-3 w-75"  name="people" placeholder=" Max People" th:field="*{people}" >
             </div>
 
             <div  class="css" >
-                <label> Ma Kieu Thue</label>
+                <label> Code Type</label>
                 <select name="rent" class="form-control rounded-3 w-75" th:field="*{rentType}">
-                    <option  value="0"> chon </option>
+                    <option  value="0"> Pick </option>
                     <option th:each="list : ${rentList}"
                     th:value="${list.id}"
                     th:text="${list.name}"></option>
@@ -69,38 +71,38 @@
             </div>
 
             <div  class="css"  id = "div1" style="display: none" >
-                <label>Tieu chuan Phong</label>
+                <label>Room Standard</label>
                 <input type="text"  id = "s1"  value="nomal" class="form-control rounded-3 w-75" name="roomstandar"
-                       placeholder="Tieu chuan Phong" th:field="*{room}">
+                       placeholder="Room Standard" th:field="*{room}">
             </div>
 
             <div  class="css" id = "div2" style="display: none" >
-                <label>Tien Nghi Khac</label>
+                <label>Other facilities</label>
                 <input type="text"  id="s2" class="form-control rounded-3 w-75" name="anyelse"
-                       placeholder="Tien Nghi Khac" th:field="*{note}">
+                       placeholder="Other facilities" th:field="*{note}">
             </div>
 
             <div  class="css"  id = "div3" style="display: none"  >
-                <label>Dien Tich Ho Boi</label>
-                <input type="number"  id="s3"  value="0" class="form-control rounded-3 w-75" name="areapool"
+                <label>Pool Area</label>
+                <input type="number"  id="s3"  value="0" class="form-control rounded-3 w-75" name="Pool Area"
                        placeholder="Dien Tich Ho Boi" th:field="*{poolArea}">
 
             </div>
 
             <div  class="css" id = "div4" style="display: none" >
-                <label>So Tang</label>
-                <input type="number"  id="s4"  value=0 class="form-control rounded-3 w-75" name="flood"
-                       placeholder="So Tang" th:field="*{flood}">
+                <label>Floods</label>
+                <input type="number"  id="s4"  value=0 class="form-control rounded-3 w-75" name="Floods"
+                       placeholder="Floods" th:field="*{flood}">
 
             </div>
 
             <div  class="css" id = "div5" style="display: block" >
-                <label>Dich vu mien phi di kem </label>
+                <label>Free Service </label>
                 <input type="text" id="s5"  class="form-control rounded-3 w-75" name="freeservice"
-                       placeholder="So Tang" th:field="*{free}">
+                       placeholder="Free Service" th:field="*{free}">
             </div>
             <p></p>
-            <button type="submit" class="btn btn-primary text-lg-center css">Submit</button>
+            <button type="submit" class="btn btn-primary text-lg-center css mb-2">Submit</button>
 
         </form>
     </div>
@@ -108,6 +110,7 @@
     <div class="col-lg-3 "></div>
 </div>
 
+<footer th:replace="~{home::footer}" class="mt-6"></footer>
 <script src="../../js/bootstrap.min.js"></script>
 </body>
 <script>

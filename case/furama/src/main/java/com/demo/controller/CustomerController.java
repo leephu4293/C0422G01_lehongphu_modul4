@@ -12,6 +12,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -46,8 +47,9 @@ public class CustomerController {
     }
 
     @PostMapping("/addCustomer")
-    public String add(@ModelAttribute Customer customer) {
+    public String add(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
         this.customerService.save(customer);
+        redirectAttributes.addFlashAttribute("msg","Create Done");
         return "redirect:/customer";
     }
 
@@ -61,14 +63,16 @@ public class CustomerController {
     }
 
     @PostMapping("/updateCustomer")
-    public String update(@ModelAttribute Customer customer) {
+    public String update(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
         this.customerService.save(customer);
+        redirectAttributes.addFlashAttribute("msg","Update Complete");
         return "redirect:/customer";
     }
 
     @GetMapping("/deleteCustomer")
-    public String delete(@RequestParam int deleteModal) {
+    public String delete(@RequestParam int deleteModal, RedirectAttributes redirectAttributes) {
         this.customerService.deleteById(deleteModal);
+        redirectAttributes.addFlashAttribute("msg", "Delete Done");
         return "redirect:/customer";
     }
 

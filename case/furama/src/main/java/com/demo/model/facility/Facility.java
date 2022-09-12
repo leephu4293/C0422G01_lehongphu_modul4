@@ -1,11 +1,13 @@
 package com.demo.model.facility;
 
+import com.demo.model.Contract;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -55,5 +57,9 @@ public class Facility {
    @ManyToOne
     @JoinColumn(name = "ma_loai_dich_vu", referencedColumnName = "ma_loai_dich_vu")
     private TypeService typeService;
+
+   @OneToMany (mappedBy = "facility")
+    private List<Contract> contracts;
+
 
 }

@@ -63,7 +63,7 @@ public class FacilityController {
         List<RentType> rentTypeList = this.rentService.findAll();
         List<TypeService> typeServiceList = this.iTypeServiceService.findAll();
         model.addAttribute("typeList", typeServiceList);
-        model.addAttribute("createFacility", this.facilityService.findById(id));
+        model.addAttribute("updateFacility", this.facilityService.findById(id));
         model.addAttribute("rentList", rentTypeList);
         return "/facility/update";
     }
