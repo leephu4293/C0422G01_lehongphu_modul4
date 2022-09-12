@@ -76,14 +76,26 @@ public class FacilityController {
     public String showUpdateFac(Model model, @PathVariable int id) {
         List<RentType> rentTypeList = this.rentService.findAll();
         List<TypeService> typeServiceList = this.iTypeServiceService.findAll();
+        FacilityDto facilityDto = new FacilityDto();
+        BeanUtils.copyProperties( this.facilityService.findById(id),facilityDto);
         model.addAttribute("typeList", typeServiceList);
-        model.addAttribute("updateFacility", this.facilityService.findById(id));
+        model.addAttribute("facilityDto", facilityDto);
         model.addAttribute("rentList", rentTypeList);
         return "/facility/update";
     }
 
     @PostMapping("/updateFrom")
-    public String updateFrom(@ModelAttribute Facility facility) {
+    public String updateFrom(@ModelAttribute @Valid FacilityDto facilityDto,BindingResult bindingResult,
+                             Model model) {
+        Facility facility = new Facility();
+        if (bindingResult.hasErrors()){
+            List<RentType> rentTypeList = this.rentService.findAll();
+            List<TypeService> typeServiceList = this.iTypeServiceService.findAll();
+            model.addAttribute("typeList", typeServiceList);
+            model.addAttribute("rentList", rentTypeList);
+            return "/facility/update";
+        }
+        BeanUtils.copyProperties(facilityDto,facility);
         this.facilityService.save(facility);
         return "redirect:/facilityList";
     }

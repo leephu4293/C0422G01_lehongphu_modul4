@@ -22,7 +22,7 @@
     <div class="col-lg-3"></div>
     <div class="col-lg-6 " >
         <form class="text-dark bg-light" style="box-shadow:  10px 10px 10px black;
-         border-radius: 10px" action="/updateFrom" method="post" th:object="${updateFacility}">
+         border-radius: 10px" action="/updateFrom" method="post" th:object="${facilityDto}">
             <input hidden class="form-control rounded-3 w-75"  name="name" placeholder="Ten Dich Vu" th:field="*{idFacility}" >
             <div class="css">
 
@@ -38,25 +38,28 @@
             <div  class="css">
                 <label>Name Service</label>
                 <input type="text" class="form-control rounded-3 w-75" name="name" placeholder="Name Service" th:field="*{name}" >
+                <div class="text-danger mt-2" th:errors="*{name}"></div>
 
             </div>
 
             <div  class="css">
                 <label>Use Area</label>
                 <input type="number" class="form-control rounded-3 w-75"  name="area" placeholder="Use Area" th:field="*{area}">
+                <div class="text-danger mt-2" th:errors="*{area}"></div>
 
             </div>
 
             <div  class="css">
                 <label>Cost</label>
                 <input type="number" class="form-control rounded-3 w-75" name="cost"  placeholder="Cost"  th:field="*{cost}" >
+                <div class="text-danger mt-2" th:errors="*{cost}"></div>
 
             </div>
 
             <div  class="css">
                 <label>Max People</label>
                 <input type="number"  value=0 class="form-control rounded-3 w-75"  name="people" placeholder=" Max People" th:field="*{people}" >
-
+                <div class="text-danger mt-2" th:errors="*{people}"></div>
             </div>
 
             <div  class="css" >
@@ -85,6 +88,7 @@
                 <label>Pool Area</label>
                 <input type="number"  id="s3"  value="0" class="form-control rounded-3 w-75" name="Pool Area"
                        placeholder="Dien Tich Ho Boi" th:field="*{poolArea}">
+                <div class="text-danger mt-2" th:errors="*{poolArea}"></div>
 
             </div>
 
@@ -92,6 +96,7 @@
                 <label>Floods</label>
                 <input type="number"  id="s4"  value=0 class="form-control rounded-3 w-75" name="Floods"
                        placeholder="So Tang" th:field="*{flood}">
+                <div class="text-danger mt-2" th:errors="*{flood}"></div>
 
             </div>
 

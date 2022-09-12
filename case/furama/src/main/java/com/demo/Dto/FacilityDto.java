@@ -20,6 +20,8 @@ import javax.validation.constraints.Pattern;
 @AllArgsConstructor
 public class FacilityDto implements Validator {
 
+    private Integer idFacility;
+
     @NotBlank
     @Pattern(regexp = "^([A-Z][ a-zA-Z0-9]+)+$")
     private String name;
